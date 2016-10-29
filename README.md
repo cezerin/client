@@ -59,3 +59,6 @@ api.products.categories.create({ name: 'Woman', active: false })
 * `products.categories.deleteImage(id)`
 
 ## Contribute
+*
+*
+*
