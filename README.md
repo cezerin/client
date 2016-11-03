@@ -57,6 +57,15 @@ api.products.categories.create({ name: 'Woman', active: false })
 * `products.categories.delete(id)`
 * `products.categories.uploadImage(data)`
 * `products.categories.deleteImage(id)`
+* `products.list()`
+* `products.retrieve(id)`
+* `products.create(data)`
+* `products.update(id, data)`
+* `products.delete(id)`
+* `products.uploadImage(productId, data)`
+* `products.deleteImage(productId, imageId)`
+
+
 
 ## Contribute
 *
