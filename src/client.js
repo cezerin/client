@@ -5,9 +5,8 @@ class RestClient {
     this.isAuthorized = false;
   }
 
-  init(baseUrl, language, token) {
+  init(baseUrl, token) {
     this.baseUrl = baseUrl;
-    this.language = language;
     this.token = token;
     this.isAuthorized = true;
   }
@@ -17,7 +16,6 @@ class RestClient {
   		method: 'post',
   		headers: {
         'Content-Type': 'application/json',
-  			'Accept-Language': 'en',
         'Accept-Encoding': 'gzip, deflate',
   			'Authorization': 'Basic ' + this.btoa(`${user}:${pass}`)
   		}
@@ -34,8 +32,7 @@ class RestClient {
 			method: method,
 			headers: {
         'Content-Type': 'application/json',
-				'Accept-Language': this.language,
-        //'Accept-Encoding': 'gzip, deflate',
+        'Accept-Encoding': 'gzip, deflate',
 				'Authorization': 'Bearer ' + this.token
 			}
 		};
