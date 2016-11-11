@@ -71,7 +71,8 @@ api.products.categories.create({ name: 'Woman', active: false })
     price_from: 0,
     price_to: 100,
     sku: '',
-    ids: '<id>,<id>,<id>'  
+    ids: '<id>,<id>,<id>',
+    sort: 'regular_price,-stock_quantity'
    })`
 * `products.retrieve(id)`
 * `products.create(data)`
