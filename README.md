@@ -11,7 +11,7 @@ Install with:
 
 ```javascript
 let api = require('cezerin-client');
-api.init('https://website.com/api/', 'en', 'eyJhbGciOiJIUzI1NiIsInR...');
+api.init('https://website.com/api/', '<token>');
 
 // get all categories
 api.products.categories.list().then(({status, json}) => {
@@ -29,7 +29,7 @@ api.products.categories.create({name: 'Woman', active: false})
 
 ```javascript
 let api = require('cezerin-client');
-api.init('https://website.com/api/', 'en', 'eyJhbGciOiJIUzI1NiIsInR...');
+api.init('https://website.com/api/', '<token>');
 
 api.products.categories.create({ name: 'Woman', active: false })
 .then(({status, json}) => {
@@ -46,7 +46,7 @@ api.products.categories.create({ name: 'Woman', active: false })
 
 ## Methods
 
-* `init(baseUrl, language, token)`
+* `init(baseUrl, token)`
 * `authorize(baseUrl, user, pass)`
 * `sitemap.list()`
 * `sitemap.retrieve(path)`
@@ -57,7 +57,22 @@ api.products.categories.create({ name: 'Woman', active: false })
 * `products.categories.delete(id)`
 * `products.categories.uploadImage(data)`
 * `products.categories.deleteImage(id)`
-* `products.list()`
+* `products.list({
+    offset: 0,
+    limit: 10,
+    fields: 'id, name, price',
+    brand_id: '<id>',
+    category_id: '<id>',
+    active: true,
+    discontinued: false,
+    search: '',
+    on_sale: true,
+    stock_status: 'available',
+    price_from: 0,
+    price_to: 100,
+    sku: '',
+    ids: '<id>,<id>,<id>'  
+   })`
 * `products.retrieve(id)`
 * `products.create(data)`
 * `products.update(id, data)`

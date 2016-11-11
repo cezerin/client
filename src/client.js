@@ -43,8 +43,16 @@ class RestClient {
     return config;
 	}
 
-	get(endpoint) {
-		return fetch(this.baseUrl + endpoint, this.getConfig('get')).then(this.returnStatusAndJson);
+  getParamsFromObject(obj) {
+    let params = "";
+    if(obj) {
+      params = "?" + Object.keys(obj).map(key => (key + '=' + encodeURIComponent(obj[key]))).join('&');
+    }
+    return params;
+  }
+
+	get(endpoint, filter) {
+    return fetch(this.baseUrl + endpoint + this.getParamsFromObject(filter), this.getConfig('get')).then(this.returnStatusAndJson);
 	}
 
   post(endpoint, data) {
