@@ -58,22 +58,22 @@ api.products.categories.create({ name: 'Woman', active: false })
 * `products.categories.uploadImage(data)`
 * `products.categories.deleteImage(id)`
 * `products.list({
-    offset: 0,
-    limit: 10,
-    fields: 'id, name, price',
-    brand_id: '<id>',
-    category_id: '<id>',
-    active: true,
-    discontinued: false,
-    search: '',
-    on_sale: true,
-    stock_status: 'available',
-    price_from: 0,
-    price_to: 100,
-    sku: '',
-    ids: '<id>,<id>,<id>',
-    sort: 'regular_price,-stock_quantity',
-    currency: 'USD'
+    - offset: 0,
+    - limit: 10,
+    - fields: 'id, name, price',
+    - brand_id: '<id>',
+    - category_id: '<id>',
+    - active: true,
+    - discontinued: false,
+    - search: '',
+    - on_sale: true,
+    - stock_status: 'available',
+    - price_from: 0,
+    - price_to: 100,
+    - sku: '',
+    - ids: '<id>,<id>,<id>',
+    - sort: 'regular_price,-stock_quantity',
+    - currency: 'USD'
    })`
 * `products.retrieve(id)`
 * `products.retrieve(id, { currency: 'USD' })`
