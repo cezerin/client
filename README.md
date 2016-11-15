@@ -72,9 +72,11 @@ api.products.categories.create({ name: 'Woman', active: false })
     price_to: 100,
     sku: '',
     ids: '<id>,<id>,<id>',
-    sort: 'regular_price,-stock_quantity'
+    sort: 'regular_price,-stock_quantity',
+    currency: 'USD'
    })`
 * `products.retrieve(id)`
+* `products.retrieve(id, { currency: 'USD' })`
 * `products.create(data)`
 * `products.update(id, data)`
 * `products.delete(id)`

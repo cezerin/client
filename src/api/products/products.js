@@ -7,8 +7,8 @@ class Products {
     return this.client.get('/products', filter);
   }
 
-  retrieve(id) {
-    return this.client.get(`/products/${id}`);
+  retrieve(id, filter) {
+    return this.client.get(`/products/${id}`, filter);
   }
 
   create(data) {
