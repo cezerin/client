@@ -1,5 +1,4 @@
 require('isomorphic-fetch');
-const path = require('path');
 
 class RestClient {
   constructor() {
@@ -7,7 +6,7 @@ class RestClient {
   }
 
   init(baseUrl, token) {
-    this.baseUrl = baseUrl;
+    this.baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
     this.token = token;
     this.isAuthorized = true;
   }
@@ -21,6 +20,7 @@ class RestClient {
   			'Authorization': 'Basic ' + this.btoa(`${user}:${pass}`)
   		}
     };
+    baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
     return fetch(baseUrl + endpoint, config).then(this.returnStatusAndJson);
   }
 
@@ -53,19 +53,19 @@ class RestClient {
   }
 
 	get(endpoint, filter) {
-    return fetch(path.join(this.baseUrl, endpoint) + this.getParamsFromObject(filter), this.getConfig('get')).then(this.returnStatusAndJson);
+    return fetch(this.baseUrl + endpoint + this.getParamsFromObject(filter), this.getConfig('get')).then(this.returnStatusAndJson);
 	}
 
   post(endpoint, data) {
-		return fetch(path.join(this.baseUrl, endpoint), this.getConfig('post', data)).then(this.returnStatusAndJson);
+		return fetch(this.baseUrl + endpoint, this.getConfig('post', data)).then(this.returnStatusAndJson);
 	}
 
   put(endpoint, data) {
-		return fetch(path.join(this.baseUrl, endpoint), this.getConfig('put', data)).then(this.returnStatusAndJson);
+		return fetch(this.baseUrl + endpoint, this.getConfig('put', data)).then(this.returnStatusAndJson);
 	}
 
   delete(endpoint) {
-		return fetch(path.join(this.baseUrl, endpoint), this.getConfig('delete')).then(this.returnStatusAndJson);
+		return fetch(this.baseUrl + endpoint, this.getConfig('delete')).then(this.returnStatusAndJson);
 	}
 
   returnStatusAndJson(response) {
