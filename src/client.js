@@ -1,4 +1,5 @@
 require('isomorphic-fetch');
+const path = require('path');
 
 class RestClient {
   constructor() {
@@ -52,19 +53,19 @@ class RestClient {
   }
 
 	get(endpoint, filter) {
-    return fetch(this.baseUrl + endpoint + this.getParamsFromObject(filter), this.getConfig('get')).then(this.returnStatusAndJson);
+    return fetch(path.join(this.baseUrl, endpoint) + this.getParamsFromObject(filter), this.getConfig('get')).then(this.returnStatusAndJson);
 	}
 
   post(endpoint, data) {
-		return fetch(this.baseUrl + endpoint, this.getConfig('post', data)).then(this.returnStatusAndJson);
+		return fetch(path.join(this.baseUrl, endpoint), this.getConfig('post', data)).then(this.returnStatusAndJson);
 	}
 
   put(endpoint, data) {
-		return fetch(this.baseUrl + endpoint, this.getConfig('put', data)).then(this.returnStatusAndJson);
+		return fetch(path.join(this.baseUrl, endpoint), this.getConfig('put', data)).then(this.returnStatusAndJson);
 	}
 
   delete(endpoint) {
-		return fetch(this.baseUrl + endpoint, this.getConfig('delete')).then(this.returnStatusAndJson);
+		return fetch(path.join(this.baseUrl, endpoint), this.getConfig('delete')).then(this.returnStatusAndJson);
 	}
 
   returnStatusAndJson(response) {
