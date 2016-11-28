@@ -56,4 +56,4 @@ class AjaxClient {
   }
 }
 
-export default AjaxClient
+module.exports = AjaxClient

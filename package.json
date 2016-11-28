@@ -1,6 +1,6 @@
 {
   "name": "cezerin-client",
-  "version": "0.1.42",
+  "version": "0.1.73",
   "description": "Cezerin API client library",
   "keywords": [
     "cezerin",
@@ -33,13 +33,9 @@
   "dependencies": {
     "isomorphic-fetch": "^2.2.1"
   },
-  "engines": {
-    "node": ">=6.1.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
-    "babel-preset-stage-2": "^6.18.0",
     "eslint": "^3.8.1",
     "eslint-config-standard": "^6.2.0",
     "eslint-plugin-promise": "^3.3.0",
