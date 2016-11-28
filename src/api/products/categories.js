@@ -33,4 +33,4 @@ class ProductCategories {
   }
 }
 
-module.exports = ProductCategories;
+export default ProductCategories

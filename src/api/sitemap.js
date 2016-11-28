@@ -12,4 +12,4 @@ class Sitemap {
   }
 }
 
-module.exports = Sitemap;
+export default Sitemap

@@ -1,12 +1,12 @@
-require('isomorphic-fetch');
+import fetch from 'isomorphic-fetch'
 
-class RestClient {
+class ApiClient {
   constructor() {
     this.isAuthorized = false;
   }
 
   init(baseUrl, token) {
-    this.baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+    this.baseUrl = baseUrl;
     this.token = token;
     this.isAuthorized = true;
   }
@@ -20,7 +20,6 @@ class RestClient {
   			'Authorization': 'Basic ' + this.btoa(`${user}:${pass}`)
   		}
     };
-    baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
     return fetch(baseUrl + endpoint, config).then(this.returnStatusAndJson);
   }
 
@@ -80,4 +79,4 @@ class RestClient {
   }
 }
 
-module.exports = new RestClient();
+export default new ApiClient()
