@@ -82,10 +82,10 @@ api.products.categories.create({ name: 'Woman', active: false })
 * `products.delete(id)`
 * `products.uploadImage(productId, data)`
 * `products.deleteImage(productId, imageId)`
+* `themes.exportCurrent()`
+* `themes.importAndInstall(formData)`
 
 
+## Contributing
 
-## Contribute
-*
-*
-*
+If you can, please contribute by reporting issues, discussing ideas, or submitting pull requests with patches and new features. We do our best to respond to all issues and pull requests within a day or two, and make patch releases to npm regularly.

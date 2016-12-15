@@ -1,6 +1,7 @@
 const ProductCategories = require('./api/products/categories')
 const Products = require('./api/products/products')
 const Sitemap = require('./api/sitemap')
+const Themes = require('./api/themes')
 const AjaxClient = require('./ajaxClient')
 const apiClient = require('./apiClient')
 
@@ -17,6 +18,7 @@ api.init = (baseUrl, token) => {
     api.products = new Products(apiClient);
     api.products.categories = new ProductCategories(apiClient);
     api.sitemap = new Sitemap(apiClient);
+    api.themes = new Themes(apiClient);
 };
 
 api.initAjax = (baseUrl) => {

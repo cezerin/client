@@ -43,6 +43,18 @@ class ApiClient {
     return config;
 	}
 
+  postFormDataConfig(formData) {
+    let config = {
+      method: 'post',
+      body: formData,
+      headers: {
+        'Authorization': 'Bearer ' + this.token
+      }
+    };
+
+    return config;
+  }
+
   getParamsFromObject(obj) {
     let params = "";
     if(obj) {
@@ -66,6 +78,10 @@ class ApiClient {
   delete(endpoint) {
 		return fetch(this.baseUrl + endpoint, this.getConfig('delete')).then(this.returnStatusAndJson);
 	}
+
+  postFormData(endpoint, formData) {
+    return fetch(this.baseUrl + endpoint, this.postFormDataConfig(formData)).then(this.returnStatusAndJson);
+  }
 
   returnStatusAndJson(response) {
       var contentType = response.headers.get("content-type");
