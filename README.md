@@ -14,12 +14,12 @@ let api = require('cezerin-client');
 api.init('https://website.com/api/', '<token>');
 
 // get all categories
-api.products.categories.list().then(({status, json}) => {
+api.product_categories.list().then(({status, json}) => {
     console.log(json[0].name)
 });
 
 // create a category
-api.products.categories.create({name: 'Woman', active: false})
+api.product_categories.create({name: 'Woman', active: false})
 .then(({status, json}) => {
     console.log(`New id: ${json.id}`)
 });
@@ -31,7 +31,7 @@ api.products.categories.create({name: 'Woman', active: false})
 let api = require('cezerin-client');
 api.init('https://website.com/api/', '<token>');
 
-api.products.categories.create({ name: 'Woman', active: false })
+api.product_categories.create({ name: 'Woman', active: false })
 .then(({status, json}) => {
   if(status === 200) {
     return json;
@@ -50,13 +50,13 @@ api.products.categories.create({ name: 'Woman', active: false })
 * `authorize(baseUrl, user, pass)`
 * `sitemap.list()`
 * `sitemap.retrieve(path)`
-* `products.categories.list()`
-* `products.categories.retrieve(id)`
-* `products.categories.create(data)`
-* `products.categories.update(id, data)`
-* `products.categories.delete(id)`
-* `products.categories.uploadImage(data)`
-* `products.categories.deleteImage(id)`
+* `product_categories.list()`
+* `product_categories.retrieve(id)`
+* `product_categories.create(data)`
+* `product_categories.update(id, data)`
+* `product_categories.delete(id)`
+* `product_categories.uploadImage(data)`
+* `product_categories.deleteImage(id)`
 * `products.list({
     - offset: 0,
     - limit: 10,
@@ -84,7 +84,16 @@ api.products.categories.create({ name: 'Woman', active: false })
 * `products.deleteImage(productId, imageId)`
 * `themes.exportCurrent()`
 * `themes.importAndInstall(formData)`
-
+* `customers.list`
+* `customers.retrieve`
+* `customers.create`
+* `customers.update`
+* `customers.delete`
+* `customer_groups.list`
+* `customer_groups.retrieve`
+* `customer_groups.create`
+* `customer_groups.update`
+* `customer_groups.delete`
 
 ## Contributing
 
