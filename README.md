@@ -89,11 +89,17 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `customers.create`
 * `customers.update`
 * `customers.delete`
+* `customers.createAddress`
+* `customers.updateAddress`
+* `customers.deleteImage`
+* `customers.setDefaultBillingAddress`
+* `customers.setDefaultShippingAddress`
 * `customer_groups.list`
 * `customer_groups.retrieve`
 * `customer_groups.create`
 * `customer_groups.update`
 * `customer_groups.delete`
+
 
 ## Contributing
 
