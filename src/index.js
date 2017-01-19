@@ -4,6 +4,10 @@ const Sitemap = require('./api/sitemap')
 const Themes = require('./api/themes')
 const CustomerGroups = require('./api/customer_groups')
 const Customers = require('./api/customers')
+const Orders = require('./api/orders')
+const OrderStatuses = require('./api/order_statuses')
+const ShippingMethods = require('./api/shipping_methods')
+const PaymentMethods = require('./api/payment_methods')
 const AjaxClient = require('./ajaxClient')
 const apiClient = require('./apiClient')
 
@@ -20,6 +24,10 @@ api.init = (baseUrl, token) => {
     api.products = new Products(apiClient);
     api.product_categories = new ProductCategories(apiClient);
     api.customers = new Customers(apiClient);
+    api.orders = new Orders(apiClient);
+    api.order_statuses = new OrderStatuses(apiClient);
+    api.shipping_methods = new ShippingMethods(apiClient);
+    api.payment_methods = new PaymentMethods(apiClient);
     api.customer_groups = new CustomerGroups(apiClient);
     api.sitemap = new Sitemap(apiClient);
     api.themes = new Themes(apiClient);

@@ -23,11 +23,11 @@ class Customers {
     return this.client.delete(`/customers/${id}`);
   }
 
-  createAddress(customer_id, address) {
+  createAddress(customer_id, data) {
     return this.client.post(`/customers/${customer_id}`, data);
   }
 
-  updateAddress(customer_id, address_id, address) {
+  updateAddress(customer_id, address_id, data) {
     return this.client.put(`/customers/${customer_id}/addresses/${address_id}`, data);
   }
 

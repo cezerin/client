@@ -11,7 +11,7 @@ Install with:
 
 ```javascript
 let api = require('cezerin-client');
-api.init('https://website.com/api/', '<token>');
+api.init('https://website.com/api/v1', '<token>');
 
 // get all categories
 api.product_categories.list().then(({status, json}) => {
@@ -29,7 +29,7 @@ api.product_categories.create({name: 'Woman', active: false})
 
 ```javascript
 let api = require('cezerin-client');
-api.init('https://website.com/api/', '<token>');
+api.init('https://website.com/api/v1', '<token>');
 
 api.product_categories.create({ name: 'Woman', active: false })
 .then(({status, json}) => {
@@ -99,6 +99,37 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `customer_groups.create`
 * `customer_groups.update`
 * `customer_groups.delete`
+* `order.list`
+* `order.retrieve`
+* `order.create`
+* `order.update`
+* `order.delete`
+* `order.updateBillingAddress`
+* `order.updateShippingAddress`
+* `order.addItem`
+* `order.updateItem`
+* `order.deleteItem`
+* `order.addTransaction`
+* `order.updateTransaction`
+* `order.deleteTransaction`
+* `order.addDiscount`
+* `order.updateDiscount`
+* `order.deleteDiscount`
+* `order_statuses.list`
+* `order_statuses.retrieve`
+* `order_statuses.create`
+* `order_statuses.update`
+* `order_statuses.delete`
+* `shipping_methods.list`
+* `shipping_methods.retrieve`
+* `shipping_methods.create`
+* `shipping_methods.update`
+* `shipping_methods.delete`
+* `payment_methods.list`
+* `payment_methods.retrieve`
+* `payment_methods.create`
+* `payment_methods.update`
+* `payment_methods.delete`
 
 
 ## Contributing
