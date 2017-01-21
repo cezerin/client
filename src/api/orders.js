@@ -23,6 +23,10 @@ class Orders {
     return this.client.delete(`/orders/${id}`);
   }
 
+  recalculate(id) {
+    return this.client.put(`/orders/${id}/recalculate`);
+  }
+
   updateBillingAddress(order_id, address) {
     return this.client.put(`/orders/${order_id}/billing_address`, data);
   }
