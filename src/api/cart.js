@@ -3,8 +3,8 @@ class Cart {
     this.client = client;
   }
 
-  retrieve(filter) {
-    return this.client.get(`/cart`, filter);
+  retrieve(cookie) {
+    return this.client.get(`/cart`, null, cookie);
   }
 
   create(data) {

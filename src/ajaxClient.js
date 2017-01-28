@@ -5,7 +5,7 @@ class AjaxClient {
     this.baseUrl = baseUrl;
   }
 
-	getConfig(method, data) {
+	getConfig(method, data, cookie) {
 		let config = {
       credentials: 'same-origin',
       method: method,
@@ -14,6 +14,10 @@ class AjaxClient {
         'Accept-Encoding': 'gzip, deflate'
 			}
 		};
+
+    if(cookie) {
+      config.headers.Cookie = cookie;
+    }
 
     if(data) {
       config.body = JSON.stringify(data);
@@ -29,8 +33,8 @@ class AjaxClient {
     return params;
   }
 
-	get(endpoint, filter) {
-    return fetch(this.baseUrl + endpoint + this.getParamsFromObject(filter), this.getConfig('get')).then(this.returnStatusAndJson);
+	get(endpoint, filter, cookie) {
+    return fetch(this.baseUrl + endpoint + this.getParamsFromObject(filter), this.getConfig('get', null, cookie)).then(this.returnStatusAndJson);
 	}
 
   post(endpoint, data) {
