@@ -13,6 +13,7 @@ class ApiClient {
 
   authorize(baseUrl, endpoint, user, pass) {
     let config = {
+      credentials: 'same-origin',
   		method: 'post',
   		headers: {
         'Content-Type': 'application/json',
@@ -29,6 +30,7 @@ class ApiClient {
 
 	getConfig(method, data) {
 		let config = {
+      credentials: 'same-origin',
 			method: method,
 			headers: {
         'Content-Type': 'application/json',
@@ -45,6 +47,7 @@ class ApiClient {
 
   postFormDataConfig(formData) {
     let config = {
+      credentials: 'same-origin',
       method: 'post',
       body: formData,
       headers: {
@@ -84,6 +87,12 @@ class ApiClient {
   }
 
   returnStatusAndJson(response) {
+      // response.status (number) - HTTP response code in the 100–599 range
+      // response.statusText (String) - Status text as reported by the server, e.g. "Unauthorized"
+      // response.ok (boolean) - True if status is HTTP 2xx
+      // response.headers (Headers)
+      // response.url (String)
+
       var contentType = response.headers.get("content-type");
       if (contentType && contentType.indexOf("application/json") !== -1) {
           return response.json().then(function(json) {

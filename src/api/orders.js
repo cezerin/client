@@ -28,11 +28,11 @@ class Orders {
   }
 
   updateBillingAddress(order_id, address) {
-    return this.client.put(`/orders/${order_id}/billing_address`, data);
+    return this.client.put(`/orders/${order_id}/billing_address`, address);
   }
 
   updateShippingAddress(order_id, address) {
-    return this.client.put(`/orders/${order_id}/shipping_address`, data);
+    return this.client.put(`/orders/${order_id}/shipping_address`, address);
   }
 
   addItem(order_id, data) {
