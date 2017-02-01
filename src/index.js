@@ -9,6 +9,8 @@ const Orders = require('./api/orders')
 const OrderStatuses = require('./api/order_statuses')
 const ShippingMethods = require('./api/shipping_methods')
 const PaymentMethods = require('./api/payment_methods')
+const Countries = require('./api/countries')
+const Currencies = require('./api/currencies')
 const AjaxClient = require('./ajaxClient')
 const apiClient = require('./apiClient')
 
@@ -32,6 +34,8 @@ api.init = (baseUrl, token) => {
     api.customer_groups = new CustomerGroups(apiClient);
     api.sitemap = new Sitemap(apiClient);
     api.themes = new Themes(apiClient);
+    api.countries = new Countries(apiClient);
+    api.currencies = new Currencies(apiClient);
 };
 
 api.initAjax = (baseUrl) => {
@@ -41,6 +45,8 @@ api.initAjax = (baseUrl) => {
     api.ajax.product_categories = new ProductCategories(ajaxClient);
     api.ajax.sitemap = new Sitemap(ajaxClient);
     api.ajax.cart = new Cart(ajaxClient);
+    api.ajax.countries = new Countries(ajaxClient);
+    api.ajax.currencies = new Currencies(ajaxClient);
 };
 
 module.exports = api;
