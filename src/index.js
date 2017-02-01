@@ -9,6 +9,8 @@ const Orders = require('./api/orders')
 const OrderStatuses = require('./api/order_statuses')
 const ShippingMethods = require('./api/shipping_methods')
 const PaymentMethods = require('./api/payment_methods')
+const AjaxShippingMethods = require('./api/ajax_shipping_methods')
+const AjaxPaymentMethods = require('./api/ajax_payment_methods')
 const Countries = require('./api/countries')
 const Currencies = require('./api/currencies')
 const AjaxClient = require('./ajaxClient')
@@ -47,6 +49,8 @@ api.initAjax = (baseUrl) => {
     api.ajax.cart = new Cart(ajaxClient);
     api.ajax.countries = new Countries(ajaxClient);
     api.ajax.currencies = new Currencies(ajaxClient);
+    api.ajax.shipping_methods = new AjaxShippingMethods(ajaxClient);
+    api.ajax.payment_methods = new AjaxPaymentMethods(ajaxClient);
 };
 
 module.exports = api;
