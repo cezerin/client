@@ -3,8 +3,8 @@ class AjaxPaymentMethods {
     this.client = client;
   }
 
-  list(filter) {
-    return this.client.get('/payment_methods', filter);
+  list() {
+    return this.client.get('/payment_methods');
   }
 }
 
