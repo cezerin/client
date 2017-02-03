@@ -15,8 +15,8 @@ class Cart {
     return this.client.put(`/cart`, data);
   }
 
-  recalculate() {
-    return this.client.put(`/cart/recalculate`);
+  finish() {
+    return this.client.put(`/cart/finish`);
   }
 
   updateBillingAddress(address) {
