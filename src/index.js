@@ -1,3 +1,6 @@
+const AjaxClient = require('./ajaxClient')
+const apiClient = require('./apiClient')
+
 const ProductCategories = require('./api/product_categories')
 const Products = require('./api/products')
 const Sitemap = require('./api/sitemap')
@@ -13,8 +16,7 @@ const AjaxShippingMethods = require('./api/ajax_shipping_methods')
 const AjaxPaymentMethods = require('./api/ajax_payment_methods')
 const Countries = require('./api/countries')
 const Currencies = require('./api/currencies')
-const AjaxClient = require('./ajaxClient')
-const apiClient = require('./apiClient')
+const Text = require('./api/text')
 
 let api = {};
 api.products = {};
@@ -38,6 +40,7 @@ api.init = (baseUrl, token) => {
     api.themes = new Themes(apiClient);
     api.countries = new Countries(apiClient);
     api.currencies = new Currencies(apiClient);
+    api.text = new Text(apiClient);
 };
 
 api.initAjax = (baseUrl) => {
