@@ -7,16 +7,12 @@ class Cart {
     return this.client.get(`/cart`, null, cookie);
   }
 
-  create(data) {
-    return this.client.post(`/cart`, data);
-  }
-
   update(data) {
     return this.client.put(`/cart`, data);
   }
 
-  finish() {
-    return this.client.put(`/cart/finish`);
+  checkout() {
+    return this.client.put(`/cart/checkout`);
   }
 
   updateBillingAddress(address) {

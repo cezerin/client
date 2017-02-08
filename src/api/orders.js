@@ -7,24 +7,28 @@ class Orders {
     return this.client.get('/orders', filter);
   }
 
-  retrieve(id, filter) {
-    return this.client.get(`/orders/${id}`, filter);
+  retrieve(order_id, filter) {
+    return this.client.get(`/orders/${order_id}`, filter);
   }
 
   create(data) {
     return this.client.post(`/orders`, data);
   }
 
-  update(id, data) {
-    return this.client.put(`/orders/${id}`, data);
+  update(order_id, data) {
+    return this.client.put(`/orders/${order_id}`, data);
   }
 
-  delete(id) {
-    return this.client.delete(`/orders/${id}`);
+  delete(order_id) {
+    return this.client.delete(`/orders/${order_id}`);
   }
 
-  recalculate(id) {
-    return this.client.put(`/orders/${id}/recalculate`);
+  recalculate(order_id) {
+    return this.client.put(`/orders/${order_id}/recalculate`);
+  }
+
+  checkout(order_id) {
+    return this.client.put(`/orders/${order_id}/checkout`);
   }
 
   updateBillingAddress(order_id, address) {

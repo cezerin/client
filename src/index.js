@@ -4,7 +4,7 @@ const Sitemap = require('./api/sitemap')
 const Themes = require('./api/themes')
 const CustomerGroups = require('./api/customer_groups')
 const Customers = require('./api/customers')
-const Cart = require('./api/cart')
+const AjaxCart = require('./api/ajax_cart')
 const Orders = require('./api/orders')
 const OrderStatuses = require('./api/order_statuses')
 const ShippingMethods = require('./api/shipping_methods')
@@ -46,7 +46,7 @@ api.initAjax = (baseUrl) => {
     api.ajax.products = new Products(ajaxClient);
     api.ajax.product_categories = new ProductCategories(ajaxClient);
     api.ajax.sitemap = new Sitemap(ajaxClient);
-    api.ajax.cart = new Cart(ajaxClient);
+    api.ajax.cart = new AjaxCart(ajaxClient);
     api.ajax.countries = new Countries(ajaxClient);
     api.ajax.currencies = new Currencies(ajaxClient);
     api.ajax.shipping_methods = new AjaxShippingMethods(ajaxClient);
