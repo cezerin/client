@@ -52,6 +52,7 @@ api.initAjax = (baseUrl) => {
     api.ajax.cart = new AjaxCart(ajaxClient);
     api.ajax.countries = new Countries(ajaxClient);
     api.ajax.currencies = new Currencies(ajaxClient);
+    api.ajax.text = new Text(apiClient);
     api.ajax.shipping_methods = new AjaxShippingMethods(ajaxClient);
     api.ajax.payment_methods = new AjaxPaymentMethods(ajaxClient);
 };
