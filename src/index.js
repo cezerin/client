@@ -17,6 +17,7 @@ const AjaxPaymentMethods = require('./api/ajax_payment_methods')
 const Countries = require('./api/countries')
 const Currencies = require('./api/currencies')
 const Text = require('./api/text')
+const Settings = require('./api/settings')
 
 let api = {};
 api.products = {};
@@ -41,6 +42,7 @@ api.init = (baseUrl, token) => {
     api.countries = new Countries(apiClient);
     api.currencies = new Currencies(apiClient);
     api.text = new Text(apiClient);
+    api.settings = new Settings(apiClient);
 };
 
 api.initAjax = (baseUrl) => {

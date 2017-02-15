@@ -131,6 +131,12 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `payment_methods.create`
 * `payment_methods.update`
 * `payment_methods.delete`
+* `settings.retrieve`
+* `settings.update`
+* `settings.retrieveEmailSettings`
+* `settings.updateEmailSettings`
+* `settings.retrieveEmailTemplate`
+* `settings.updateEmailTemplate`
 
 
 ## Contributing
