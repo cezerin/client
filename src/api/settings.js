@@ -26,6 +26,14 @@ class Settings {
   updateEmailTemplate(name, data) {
     return this.client.put(`/settings/email/templates/${name}`, data);
   }
+
+  retrieveCheckoutField(name) {
+    return this.client.get(`/settings/checkout/fields/${name}`);
+  }
+
+  updateCheckoutField(name, data) {
+    return this.client.put(`/settings/checkout/fields/${name}`, data);
+  }
 }
 
 module.exports = Settings

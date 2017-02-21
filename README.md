@@ -135,6 +135,8 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `settings.updateEmailSettings`
 * `settings.retrieveEmailTemplate`
 * `settings.updateEmailTemplate`
+* `settings.retrieveCheckoutField`
+* `settings.updateCheckoutField`
 
 
 ## Contributing
