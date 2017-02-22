@@ -60,6 +60,7 @@ api.initAjax = (baseUrl) => {
     api.ajax.currencies = new Currencies(ajaxClient);
     api.ajax.shipping_methods = new AjaxShippingMethods(ajaxClient);
     api.ajax.payment_methods = new AjaxPaymentMethods(ajaxClient);
+    api.ajax.pages = new Pages(apiClient);
 };
 
 module.exports = api;
