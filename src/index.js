@@ -19,6 +19,7 @@ const Currencies = require('./api/currencies')
 const Text = require('./api/text')
 const Settings = require('./api/settings')
 const CheckoutFields = require('./api/checkout_fields')
+const Pages = require('./api/pages')
 
 let api = {};
 api.products = {};
@@ -45,6 +46,7 @@ api.init = (baseUrl, token) => {
     api.text = new Text(apiClient);
     api.settings = new Settings(apiClient);
     api.checkout_fields = new CheckoutFields(apiClient);
+    api.pages = new Pages(apiClient);
 };
 
 api.initAjax = (baseUrl) => {

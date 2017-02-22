@@ -138,7 +138,11 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `checkout_fields.list`
 * `checkout_fields.retrieve`
 * `checkout_fields.update`
-
+* `pages.list`
+* `pages.retrieve`
+* `pages.create`
+* `pages.update`
+* `pages.delete`
 
 
 ## Contributing
