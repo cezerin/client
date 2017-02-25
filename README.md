@@ -143,7 +143,11 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `pages.create`
 * `pages.update`
 * `pages.delete`
-
+* `tokens.list`
+* `tokens.retrieve`
+* `tokens.create`
+* `tokens.update`
+* `tokens.delete`
 
 ## Contributing
 
