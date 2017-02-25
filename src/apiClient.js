@@ -11,15 +11,15 @@ class ApiClient {
     this.isAuthorized = true;
   }
 
-  authorize(baseUrl, endpoint, user, pass) {
+  authorize(baseUrl, endpoint, email) {
     let config = {
       credentials: 'same-origin',
   		method: 'post',
   		headers: {
         'Content-Type': 'application/json',
-        'Accept-Encoding': 'gzip, deflate',
-  			'Authorization': 'Basic ' + this.btoa(`${user}:${pass}`)
-  		}
+        'Accept-Encoding': 'gzip, deflate'
+  		},
+      body: JSON.stringify({ email })
     };
     return fetch(baseUrl + endpoint, config).then(this.returnStatusAndJson);
   }

@@ -20,12 +20,13 @@ const Text = require('./api/text')
 const Settings = require('./api/settings')
 const CheckoutFields = require('./api/checkout_fields')
 const Pages = require('./api/pages')
+const Tokens = require('./api/tokens')
 
 let api = {};
 api.products = {};
 
-api.authorize = (baseUrl, user, pass) => {
-    return apiClient.authorize(baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl, '/authorize', user, pass);
+api.authorize = (baseUrl, email) => {
+    return apiClient.authorize(baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl, '/authorize', email);
 };
 
 api.init = (baseUrl, token) => {
@@ -47,6 +48,7 @@ api.init = (baseUrl, token) => {
     api.settings = new Settings(apiClient);
     api.checkout_fields = new CheckoutFields(apiClient);
     api.pages = new Pages(apiClient);
+    api.tokens = new Tokens(apiClient)
 };
 
 api.initAjax = (baseUrl) => {
