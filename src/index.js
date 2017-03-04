@@ -26,11 +26,11 @@ let api = {};
 api.products = {};
 
 api.authorize = (baseUrl, email) => {
-    return apiClient.authorize(baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl, '/authorize', email);
+    return apiClient.authorize(baseUrl, '/authorize', email);
 };
 
 api.init = (baseUrl, token) => {
-    apiClient.init(baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl, token);
+    apiClient.init(baseUrl, token);
     api.token = apiClient.token;
     api.products = new Products(apiClient);
     api.product_categories = new ProductCategories(apiClient);
@@ -52,7 +52,7 @@ api.init = (baseUrl, token) => {
 };
 
 api.initAjax = (baseUrl) => {
-    let ajaxClient = new AjaxClient(baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl);
+    let ajaxClient = new AjaxClient(baseUrl);
     api.ajax = {};
     api.ajax.products = new Products(ajaxClient);
     api.ajax.product_categories = new ProductCategories(ajaxClient);
