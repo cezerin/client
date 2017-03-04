@@ -1,6 +1,6 @@
 {
   "name": "cezerin-client",
-  "version": "0.4.31",
+  "version": "0.4.33",
   "description": "Cezerin API client library",
   "keywords": [
     "cezerin",
@@ -27,23 +27,14 @@
     "url": "https://github.com/cezerin/client"
   },
   "scripts": {
-    "build": "babel src -d lib",
-    "lint": "eslint src"
+    "build": "babel src -d lib"
   },
   "dependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-plugin-transform-class-properties": "^6.23.0",
-    "eslint": "^3.16.1",
-    "eslint-plugin-promise": "^3.4.2",
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-plugin-transform-class-properties": "^6.22.0",
-    "babel-preset-latest": "^6.22.0",
-    "eslint": "^3.14.0",
-    "eslint-config-standard": "^6.2.0",
-    "eslint-plugin-promise": "^3.3.0",
-    "eslint-plugin-standard": "^2.0.1"
+    "babel-preset-latest": "^6.22.0"
   }
 }
