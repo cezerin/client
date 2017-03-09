@@ -61,7 +61,6 @@ api.product_categories.create({ name: 'Woman', active: false })
     - offset: 0,
     - limit: 10,
     - fields: 'id, name, price',
-    - brand_id: '<id>',
     - category_id: '<id>',
     - active: true,
     - discontinued: false,
