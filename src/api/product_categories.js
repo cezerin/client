@@ -3,8 +3,8 @@ class ProductCategories {
     this.client = client;
   }
 
-  list() {
-    return this.client.get('/product_categories');
+  list(filter) {
+    return this.client.get('/product_categories', filter);
   }
 
   retrieve(id) {

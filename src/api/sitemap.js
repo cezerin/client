@@ -3,12 +3,12 @@ class Sitemap {
     this.client = client;
   }
 
-  list() {
-    return this.client.get('/sitemap');
+  list(filter) {
+    return this.client.get('/sitemap', filter);
   }
 
-  retrieve(path) {
-    return this.client.get(`/sitemap?path=${path}`);
+  retrieve(filter) {
+    return this.client.get('/sitemap', filter);
   }
 }
 
