@@ -31,6 +31,14 @@ class Products {
   deleteImage(productId, imageId) {
     return this.client.delete(`/products/${productId}/images/${imageId}`);
   }
+
+  skuExists(productId, sku) {
+    return this.client.get(`/products/${productId}/sku`, { sku: sku });
+  }
+
+  slugExists(productId, slug) {
+    return this.client.get(`/products/${productId}/slug`, { slug: slug });
+  }
 }
 
 module.exports = Products

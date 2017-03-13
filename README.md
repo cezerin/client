@@ -79,6 +79,8 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `products.delete(id)`
 * `products.uploadImage(productId, data)`
 * `products.deleteImage(productId, imageId)`
+* `products.skuExists(productId, sku)`
+* `products.slugExists(productId, slug)`
 * `themes.exportCurrent()`
 * `themes.importAndInstall(formData)`
 * `customers.list`
