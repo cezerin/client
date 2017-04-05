@@ -26,6 +26,15 @@ class Settings {
   updateEmailTemplate(name, data) {
     return this.client.put(`/settings/email/templates/${name}`, data);
   }
+
+  uploadLogo(data) {
+    throw 'Not implemented';
+    //return this.client.post(`/settings/logo`, data);
+  }
+
+  deleteLogo() {
+    return this.client.delete(`/settings/logo`);
+  }
 }
 
 module.exports = Settings
