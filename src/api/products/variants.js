@@ -18,6 +18,10 @@ class ProductVariants {
   delete(productId, variantId) {
     return this.client.delete(`/products/${productId}/variants/${variantId}`);
   }
+
+  setOption(productId, variantId, data) {
+    return this.client.put(`/products/${productId}/variants/${variantId}/options`, data);
+  }
 }
 
 module.exports = ProductVariants

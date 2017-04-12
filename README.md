@@ -93,6 +93,7 @@ api.productCategories.create({ name: 'Woman' })
 * `products.variants.create(productId, data)`
 * `products.variants.update(productId, variantId, data)`
 * `products.variants.delete(productId, variantId)`
+* `products.variants.setOption(productId, variantId, data)`
 * `products.images.list(productId)`
 * `products.images.upload(productId, data) - Not implemented`
 * `products.images.delete(productId, imageId)`
