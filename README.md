@@ -14,12 +14,12 @@ let api = require('cezerin-client');
 api.init('https://website.com/api/v1', '<token>');
 
 // get all categories
-api.product_categories.list().then(({status, json}) => {
+api.productCategories.list().then(({status, json}) => {
     console.log(json[0].name)
 });
 
 // create a category
-api.product_categories.create({name: 'Woman', active: false})
+api.productCategories.create({name: 'Woman', active: false})
 .then(({status, json}) => {
     console.log(`New id: ${json.id}`)
 });
@@ -31,7 +31,7 @@ api.product_categories.create({name: 'Woman', active: false})
 let api = require('cezerin-client');
 api.init('https://website.com/api/v1', '<token>');
 
-api.product_categories.create({ name: 'Woman', active: false })
+api.productCategories.create({ name: 'Woman' })
 .then(({status, json}) => {
   if(status === 200) {
     return json;
@@ -50,13 +50,13 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `authorize(baseUrl, user, pass)`
 * `sitemap.list()`
 * `sitemap.retrieve(path)`
-* `product_categories.list()`
-* `product_categories.retrieve(id)`
-* `product_categories.create(data)`
-* `product_categories.update(id, data)`
-* `product_categories.delete(id)`
-* `product_categories.uploadImage(data)`
-* `product_categories.deleteImage(id)`
+* `productCategories.list()`
+* `productCategories.retrieve(id)`
+* `productCategories.create(data)`
+* `productCategories.update(id, data)`
+* `productCategories.delete(id)`
+* `productCategories.uploadImage(data)`
+* `productCategories.deleteImage(id)`
 * `products.list({
     - offset: 0,
     - limit: 10,
@@ -77,10 +77,25 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `products.create(data)`
 * `products.update(id, data)`
 * `products.delete(id)`
-* `products.uploadImage(productId, data)`
-* `products.deleteImage(productId, imageId)`
 * `products.skuExists(productId, sku)`
 * `products.slugExists(productId, slug)`
+* `products.options.list(productId)`
+* `products.options.retrieve(productId, optionId)`
+* `products.options.create(productId, data)`
+* `products.options.update(productId, optionId, data)`
+* `products.options.delete(productId, optionId)`
+* `products.options.values.list(productId, optionId)`
+* `products.options.values.retrieve(productId, optionId, valueId)`
+* `products.options.values.create(productId, optionId, data)`
+* `products.options.values.update(productId, optionId, valueId, data)`
+* `products.options.values.delete(productId, optionId, valueId)`
+* `products.variants.list(productId)`
+* `products.variants.create(productId, data)`
+* `products.variants.update(productId, variantId, data)`
+* `products.variants.delete(productId, variantId)`
+* `products.images.list(productId)`
+* `products.images.upload(productId, data) - Not implemented`
+* `products.images.delete(productId, imageId)`
 * `themes.exportCurrent()`
 * `themes.importAndInstall(formData)`
 * `customers.list`
@@ -94,11 +109,11 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `customers.deleteImage`
 * `customers.setDefaultBillingAddress`
 * `customers.setDefaultShippingAddress`
-* `customer_groups.list`
-* `customer_groups.retrieve`
-* `customer_groups.create`
-* `customer_groups.update`
-* `customer_groups.delete`
+* `customerGroups.list`
+* `customerGroups.retrieve`
+* `customerGroups.create`
+* `customerGroups.update`
+* `customerGroups.delete`
 * `order.list`
 * `order.retrieve`
 * `order.create`
@@ -106,39 +121,39 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `order.delete`
 * `order.updateBillingAddress`
 * `order.updateShippingAddress`
-* `order.addItem`
-* `order.updateItem`
-* `order.deleteItem`
-* `order.addTransaction`
-* `order.updateTransaction`
-* `order.deleteTransaction`
-* `order.addDiscount`
-* `order.updateDiscount`
-* `order.deleteDiscount`
-* `order_statuses.list`
-* `order_statuses.retrieve`
-* `order_statuses.create`
-* `order_statuses.update`
-* `order_statuses.delete`
-* `shipping_methods.list`
-* `shipping_methods.retrieve`
-* `shipping_methods.create`
-* `shipping_methods.update`
-* `shipping_methods.delete`
-* `payment_methods.list`
-* `payment_methods.retrieve`
-* `payment_methods.create`
-* `payment_methods.update`
-* `payment_methods.delete`
+* `orders.discounts.create(order_id, data)`
+* `orders.discounts.update(order_id, discount_id, data)`
+* `orders.discounts.delete(order_id, discount_id)`
+* `orders.transactions.create(order_id, data)`
+* `orders.transactions.update(customer_id, transaction_id, data)`
+* `orders.transactions.delete(order_id, transaction_id)`
+* `orders.items.create(order_id, data)`
+* `orders.items.update(order_id, item_id, data)`
+* `orders.items.delete(order_id, item_id)`
+* `orderStatuses.list`
+* `orderStatuses.retrieve`
+* `orderStatuses.create`
+* `orderStatuses.update`
+* `orderStatuses.delete`
+* `shippingMethods.list`
+* `shippingMethods.retrieve`
+* `shippingMethods.create`
+* `shippingMethods.update`
+* `shippingMethods.delete`
+* `paymentMethods.list`
+* `paymentMethods.retrieve`
+* `paymentMethods.create`
+* `paymentMethods.update`
+* `paymentMethods.delete`
 * `settings.retrieve`
 * `settings.update`
 * `settings.retrieveEmailSettings`
 * `settings.updateEmailSettings`
 * `settings.retrieveEmailTemplate`
 * `settings.updateEmailTemplate`
-* `checkout_fields.list`
-* `checkout_fields.retrieve`
-* `checkout_fields.update`
+* `checkoutFields.list`
+* `checkoutFields.retrieve`
+* `checkoutFields.update`
 * `pages.list`
 * `pages.retrieve`
 * `pages.create`
@@ -149,6 +164,7 @@ api.product_categories.create({ name: 'Woman', active: false })
 * `tokens.create`
 * `tokens.update`
 * `tokens.delete`
+
 
 ## Contributing
 

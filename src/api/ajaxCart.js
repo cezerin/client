@@ -1,4 +1,4 @@
-class Cart {
+class AjaxCart {
   constructor(client) {
     this.client = client;
   }
@@ -36,4 +36,4 @@ class Cart {
   }
 }
 
-module.exports = Cart
+module.exports = AjaxCart

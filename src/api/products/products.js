@@ -23,19 +23,6 @@ class Products {
     return this.client.delete(`/products/${id}`);
   }
 
-  getImages(productId) {
-    return this.client.get(`/products/${productId}/images`);
-  }
-
-  uploadImage(productId, data) {
-    throw 'Not implemented';
-    //return this.client.post(`/products/${id}`, data);
-  }
-
-  deleteImage(productId, imageId) {
-    return this.client.delete(`/products/${productId}/images/${imageId}`);
-  }
-
   skuExists(productId, sku) {
     return this.client.get(`/products/${productId}/sku`, { sku: sku });
   }
