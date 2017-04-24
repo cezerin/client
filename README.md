@@ -55,7 +55,7 @@ api.productCategories.create({ name: 'Woman' })
 * `productCategories.create(data)`
 * `productCategories.update(id, data)`
 * `productCategories.delete(id)`
-* `productCategories.uploadImage(data)`
+* `productCategories.uploadImage(categoryId, formData)`
 * `productCategories.deleteImage(id)`
 * `products.list({
     - offset: 0,
@@ -95,7 +95,7 @@ api.productCategories.create({ name: 'Woman' })
 * `products.variants.delete(productId, variantId)`
 * `products.variants.setOption(productId, variantId, data)`
 * `products.images.list(productId)`
-* `products.images.upload(productId, data) - Not implemented`
+* `products.images.upload(productId, formData)`
 * `products.images.delete(productId, imageId)`
 * `themes.exportCurrent()`
 * `themes.importAndInstall(formData)`

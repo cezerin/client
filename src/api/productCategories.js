@@ -23,9 +23,8 @@ class ProductCategories {
     return this.client.delete(`/product_categories/${id}`);
   }
 
-  uploadImage(data) {
-    throw 'Not implemented';
-    //return this.client.post(`/product_categories/${id}`, data);
+  uploadImage(categoryId, formData) {
+    return this.client.postFormData(`/product_categories/${categoryId}/image`, formData);
   }
 
   deleteImage(id) {

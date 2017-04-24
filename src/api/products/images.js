@@ -7,9 +7,8 @@ class ProductImages {
     return this.client.get(`/products/${productId}/images`);
   }
 
-  upload(productId, data) {
-    throw 'Not implemented';
-    //return this.client.post(`/products/${id}`, data);
+  upload(productId, formData) {
+    return this.client.postFormData(`/products/${productId}/images`, formData);
   }
 
   delete(productId, imageId) {
