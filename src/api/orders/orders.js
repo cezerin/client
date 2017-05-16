@@ -31,6 +31,14 @@ class Orders {
     return this.client.put(`/orders/${order_id}/checkout`);
   }
 
+  cancel(order_id) {
+    return this.client.put(`/orders/${order_id}/cancel`);
+  }
+
+  close(order_id) {
+    return this.client.put(`/orders/${order_id}/close`);
+  }
+
   updateBillingAddress(order_id, address) {
     return this.client.put(`/orders/${order_id}/billing_address`, address);
   }
