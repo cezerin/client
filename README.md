@@ -115,13 +115,17 @@ api.productCategories.create({ name: 'Woman' })
 * `customerGroups.create`
 * `customerGroups.update`
 * `customerGroups.delete`
-* `order.list`
-* `order.retrieve`
-* `order.create`
-* `order.update`
-* `order.delete`
-* `order.updateBillingAddress`
-* `order.updateShippingAddress`
+* `orders.list`
+* `orders.retrieve`
+* `orders.create`
+* `orders.update`
+* `orders.delete`
+* `orders.checkout`
+* `orders.recalculate`
+* `orders.cancel`
+* `orders.close`
+* `orders.updateBillingAddress`
+* `orders.updateShippingAddress`
 * `orders.discounts.create(order_id, data)`
 * `orders.discounts.update(order_id, discount_id, data)`
 * `orders.discounts.delete(order_id, discount_id)`
