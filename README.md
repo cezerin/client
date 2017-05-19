@@ -104,10 +104,9 @@ api.productCategories.create({ name: 'Woman' })
 * `customers.create`
 * `customers.update`
 * `customers.delete`
-* `customers.recalculate`
 * `customers.createAddress`
 * `customers.updateAddress`
-* `customers.deleteImage`
+* `customers.deleteAddress`
 * `customers.setDefaultBillingAddress`
 * `customers.setDefaultShippingAddress`
 * `customerGroups.list`

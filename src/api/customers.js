@@ -31,7 +31,7 @@ class Customers {
     return this.client.put(`/customers/${customer_id}/addresses/${address_id}`, data);
   }
 
-  deleteImage(customer_id, address_id) {
+  deleteAddress(customer_id, address_id) {
     return this.client.delete(`/customers/${customer_id}/addresses/${address_id}`);
   }
 
