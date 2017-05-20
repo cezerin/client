@@ -95,6 +95,7 @@ api.productCategories.create({ name: 'Woman' })
 * `products.variants.delete(productId, variantId)`
 * `products.variants.setOption(productId, variantId, data)`
 * `products.images.list(productId)`
+* `products.images.update(productId, imageId, data)`
 * `products.images.upload(productId, formData)`
 * `products.images.delete(productId, imageId)`
 * `themes.exportCurrent()`
