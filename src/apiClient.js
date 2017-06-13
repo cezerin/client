@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import queryString from 'query-string'
 
 class ApiClient {
   constructor() {
@@ -58,16 +59,8 @@ class ApiClient {
     return config;
   }
 
-  getParamsFromObject(obj) {
-    let params = "";
-    if(obj) {
-      params = "?" + Object.keys(obj).map(key => (key + '=' + encodeURIComponent(obj[key]))).join('&');
-    }
-    return params;
-  }
-
 	get(endpoint, filter) {
-    return fetch(this.baseUrl + endpoint + this.getParamsFromObject(filter), this.getConfig('get')).then(this.returnStatusAndJson);
+    return fetch(this.baseUrl + endpoint + "?" + queryString.stringify(filter), this.getConfig('get')).then(this.returnStatusAndJson);
 	}
 
   post(endpoint, data) {

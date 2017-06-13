@@ -1,24 +1,24 @@
 {
   "name": "cezerin-client",
-  "version": "0.14.2",
-  "description": "Cezerin API client library",
+  "version": "0.17.0",
+  "description": "Cezerin API client library. Work on browser and server.",
   "keywords": [
     "cezerin",
     "cezerin api",
     "ecommerce api",
     "shopping cart api"
   ],
-  "homepage": "https://github.com/cezerin/client",
+  "homepage": "https://cezerin.com",
   "bugs": "https://github.com/cezerin/client/issues",
   "license": "MIT",
   "author": {
-    "name": "Cezerin Team <team@cezerin.com>",
-    "url": "https://cezerin.com"
+    "name": "Restmount <jsonmount@gmail.com>",
+    "url": "https://github.com/restmount"
   },
   "contributors": [
     {
       "name": "Restmount <jsonmount@gmail.com>",
-      "url": "https://restmount.com"
+      "url": "https://github.com/restmount"
     }
   ],
   "main": "lib/index.js",
@@ -36,7 +36,8 @@
     "babel-preset-latest": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-plugin-react": "^6.10.3",
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^2.2.1",
+    "query-string": "^4.3.4"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",

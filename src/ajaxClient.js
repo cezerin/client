@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import queryString from 'query-string'
 
 class AjaxClient {
   constructor(baseUrl) {
@@ -25,16 +26,8 @@ class AjaxClient {
     return config;
 	}
 
-  getParamsFromObject(obj) {
-    let params = "";
-    if(obj) {
-      params = "?" + Object.keys(obj).map(key => (key + '=' + encodeURIComponent(obj[key]))).join('&');
-    }
-    return params;
-  }
-
 	get(endpoint, filter, cookie) {
-    return fetch(this.baseUrl + endpoint + this.getParamsFromObject(filter), this.getConfig('get', null, cookie)).then(this.returnStatusAndJson);
+    return fetch(this.baseUrl + endpoint + "?" + queryString.stringify(filter), this.getConfig('get', null, cookie)).then(this.returnStatusAndJson);
 	}
 
   post(endpoint, data) {

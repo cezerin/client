@@ -69,7 +69,6 @@ api.initAjax = (baseUrl) => {
     let ajaxClient = new AjaxClient(baseUrl);
     api.ajax = {};
     api.ajax.products = new Products(ajaxClient);
-    api.ajax.productCategories = new ProductCategories(ajaxClient);
     api.ajax.sitemap = new Sitemap(ajaxClient);
     api.ajax.cart = new AjaxCart(ajaxClient);
     api.ajax.countries = new Countries(ajaxClient);
