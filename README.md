@@ -178,8 +178,7 @@ api.productCategories.create({ nameX: 'Woman' })
 ## Web Store Methods
 
 * `api.webstore.init(token)`
-* `api.webstore.authorize(email)`
-* `api.webstore.signup(email, admin_url)`
+* `api.webstore.authorize(email, admin_url)`
 * `api.webstore.account.retrieve()`
 * `api.webstore.account.update(data)`
 * `api.webstore.account.updateDeveloper(data)`

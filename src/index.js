@@ -81,8 +81,7 @@ api.initAjax = (baseUrl) => {
 };
 
 api.webstore = {};
-api.webstore.authorize = (email) => webstoreClient.authorize(email);
-api.webstore.signup = (email, admin_url) => webstoreClient.signup(email, admin_url);
+api.webstore.authorize = (email, admin_url) => webstoreClient.authorize(email, admin_url);
 
 api.webstore.init = (token) => {
     webstoreClient.init(token);

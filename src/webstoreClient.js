@@ -12,20 +12,7 @@ class WebStoreClient {
     this.isAuthorized = true;
   }
 
-  authorize(email) {
-    let config = {
-      credentials: 'omit',
-  		method: 'post',
-  		headers: {
-        'Content-Type': 'application/json',
-        'Accept-Encoding': 'gzip, deflate'
-  		},
-      body: JSON.stringify({ email })
-    };
-    return fetch(baseUrl + '/v1/account/authorize', config).then(this.returnStatusAndJson);
-  }
-
-  signup(email, admin_url) {
+  authorize(email, admin_url) {
     let config = {
       credentials: 'omit',
       method: 'post',
@@ -35,7 +22,7 @@ class WebStoreClient {
       },
       body: JSON.stringify({ email: email, admin_url: admin_url })
     };
-    return fetch(baseUrl + '/v1/account/signup', config).then(this.returnStatusAndJson);
+    return fetch(baseUrl + '/v1/account/authorize', config).then(this.returnStatusAndJson);
   }
 
 	getConfig(method, data) {
