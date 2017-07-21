@@ -1,5 +1,6 @@
 const AjaxClient = require('./ajaxClient')
 const apiClient = require('./apiClient')
+const webstoreClient = require('./webstoreClient')
 
 const ProductCategories = require('./api/productCategories')
 const Products = require('./api/products/products')
@@ -28,6 +29,7 @@ const Settings = require('./api/settings')
 const CheckoutFields = require('./api/checkoutFields')
 const Pages = require('./api/pages')
 const Tokens = require('./api/tokens')
+const WebStoreAccount = require('./webstore/account')
 
 let api = {};
 api.products = {};
@@ -77,5 +79,15 @@ api.initAjax = (baseUrl) => {
     api.ajax.paymentMethods = new AjaxPaymentMethods(ajaxClient);
     api.ajax.pages = new Pages(ajaxClient);
 };
+
+api.webstore = {};
+api.webstore.authorize = (email) => webstoreClient.authorize(email);
+api.webstore.signup = (email, admin_url) => webstoreClient.signup(email, admin_url);
+
+api.webstore.init = (token) => {
+    webstoreClient.init(token);
+    api.webstore.token = webstoreClient.token;
+    api.webstore.account = new WebStoreAccount(webstoreClient);
+}
 
 module.exports = api;
