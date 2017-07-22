@@ -14,23 +14,21 @@ class WebStoreClient {
 
   authorize(email, admin_url) {
     let config = {
-      credentials: 'omit',
       method: 'post',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'text/plain',
         'Accept-Encoding': 'gzip, deflate'
       },
       body: JSON.stringify({ email: email, admin_url: admin_url })
     };
-    return fetch(baseUrl + '/v1/account/authorize', config).then(this.returnStatusAndJson);
+    return fetch(this.baseUrl + '/account/authorize', config).then(this.returnStatusAndJson);
   }
 
 	getConfig(method, data) {
 		let config = {
-      credentials: 'omit',
 			method: method,
 			headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'text/plain',
         'Accept-Encoding': 'gzip, deflate',
 				'Authorization': 'Bearer ' + this.token
 			}
@@ -44,7 +42,6 @@ class WebStoreClient {
 
   postFormDataConfig(formData) {
     let config = {
-      credentials: 'omit',
       method: 'post',
       body: formData,
       headers: {
@@ -82,14 +79,9 @@ class WebStoreClient {
       // response.headers (Headers)
       // response.url (String)
 
-      var contentType = response.headers.get("content-type");
-      if (contentType && contentType.indexOf("application/json") !== -1) {
-          return response.json().then(function(json) {
-              return {status: response.status, json: json};
-          });
-      } else {
-          return {status: response.status, json: null};
-      }
+      return response.json()
+      .then(json => ({status: response.status, json: json}))
+      .catch(() => ({status: response.status, json: null}));
   }
 }
 

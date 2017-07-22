@@ -49,14 +49,9 @@ class AjaxClient {
       // response.headers (Headers)
       // response.url (String)
 
-      var contentType = response.headers.get("content-type");
-      if (contentType && contentType.indexOf("application/json") !== -1) {
-          return response.json().then(function(json) {
-              return {status: response.status, json: json};
-          });
-      } else {
-          return {status: response.status, json: null};
-      }
+      return response.json()
+      .then(json => ({status: response.status, json: json}))
+      .catch(() => ({status: response.status, json: null}));
   }
 }
 
