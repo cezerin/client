@@ -1,6 +1,6 @@
 const AjaxClient = require('./ajaxClient')
-const apiClient = require('./apiClient')
-const webstoreClient = require('./webstoreClient')
+const ApiClient = require('./apiClient')
+const WebStoreClient = require('./webstoreClient')
 
 const ProductCategories = require('./api/productCategories')
 const Products = require('./api/products/products')
@@ -22,6 +22,7 @@ const ShippingMethods = require('./api/shippingMethods')
 const PaymentMethods = require('./api/paymentMethods')
 const AjaxShippingMethods = require('./api/ajaxShippingMethods')
 const AjaxPaymentMethods = require('./api/ajaxPaymentMethods')
+const AjaxPaymentFormSettings = require('./api/ajaxPaymentFormSettings')
 const Countries = require('./api/countries')
 const Currencies = require('./api/currencies')
 const Text = require('./api/text')
@@ -30,63 +31,77 @@ const CheckoutFields = require('./api/checkoutFields')
 const Pages = require('./api/pages')
 const Tokens = require('./api/tokens')
 const WebStoreAccount = require('./webstore/account')
+const WebStoreServices = require('./webstore/services')
+const WebStoreServiceSettings = require('./webstore/serviceSettings')
+const WebStoreServiceActions = require('./webstore/serviceActions')
+const WebStoreServiceLogs = require('./webstore/serviceLogs')
 
-let api = {};
-api.products = {};
+class Client {
+  constructor(options) {
+    if(!options){
+      options = {};
+    }
 
-api.authorize = (baseUrl, email) => {
-    return apiClient.authorize(baseUrl, '/authorize', email);
-};
+    this.apiBaseUrl = options.apiBaseUrl || '/api/v1';
+    this.apiToken = options.apiToken;
+    this.ajaxBaseUrl = options.ajaxBaseUrl || '/ajax';
+    this.webstoreToken = options.webstoreToken;
 
-api.init = (baseUrl, token) => {
-    apiClient.init(baseUrl, token);
-    api.token = apiClient.token;
-    api.products = new Products(apiClient);
-    api.products.options = new ProductOptions(apiClient);
-    api.products.options.values = new ProductOptionValues(apiClient);
-    api.products.variants = new ProductVariants(apiClient);
-    api.products.images = new ProductImages(apiClient);
-    api.productCategories = new ProductCategories(apiClient);
-    api.customers = new Customers(apiClient);
-    api.orders = new Orders(apiClient);
-    api.orders.discounts = new OrderDiscounts(apiClient);
-    api.orders.transactions = new OrderTransactions(apiClient);
-    api.orders.items = new OrderItems(apiClient);
-    api.orderStatuses = new OrderStatuses(apiClient);
-    api.shippingMethods = new ShippingMethods(apiClient);
-    api.paymentMethods = new PaymentMethods(apiClient);
-    api.customerGroups = new CustomerGroups(apiClient);
-    api.sitemap = new Sitemap(apiClient);
-    api.themes = new Themes(apiClient);
-    api.countries = new Countries(apiClient);
-    api.currencies = new Currencies(apiClient);
-    api.text = new Text(apiClient);
-    api.settings = new Settings(apiClient);
-    api.checkoutFields = new CheckoutFields(apiClient);
-    api.pages = new Pages(apiClient);
-    api.tokens = new Tokens(apiClient)
-};
+    const apiClient = new ApiClient({ baseUrl: this.apiBaseUrl, token: this.apiToken });
+    const ajaxClient = new AjaxClient({ baseUrl: this.ajaxBaseUrl });
+    const webstoreClient = new WebStoreClient({ token: this.webstoreToken });
 
-api.initAjax = (baseUrl) => {
-    let ajaxClient = new AjaxClient(baseUrl);
-    api.ajax = {};
-    api.ajax.products = new Products(ajaxClient);
-    api.ajax.sitemap = new Sitemap(ajaxClient);
-    api.ajax.cart = new AjaxCart(ajaxClient);
-    api.ajax.countries = new Countries(ajaxClient);
-    api.ajax.currencies = new Currencies(ajaxClient);
-    api.ajax.shippingMethods = new AjaxShippingMethods(ajaxClient);
-    api.ajax.paymentMethods = new AjaxPaymentMethods(ajaxClient);
-    api.ajax.pages = new Pages(ajaxClient);
-};
+    this.products = new Products(apiClient);
+    this.products.options = new ProductOptions(apiClient);
+    this.products.options.values = new ProductOptionValues(apiClient);
+    this.products.variants = new ProductVariants(apiClient);
+    this.products.images = new ProductImages(apiClient);
+    this.productCategories = new ProductCategories(apiClient);
+    this.customers = new Customers(apiClient);
+    this.orders = new Orders(apiClient);
+    this.orders.discounts = new OrderDiscounts(apiClient);
+    this.orders.transactions = new OrderTransactions(apiClient);
+    this.orders.items = new OrderItems(apiClient);
+    this.orderStatuses = new OrderStatuses(apiClient);
+    this.shippingMethods = new ShippingMethods(apiClient);
+    this.paymentMethods = new PaymentMethods(apiClient);
+    this.customerGroups = new CustomerGroups(apiClient);
+    this.sitemap = new Sitemap(apiClient);
+    this.themes = new Themes(apiClient);
+    this.countries = new Countries(apiClient);
+    this.currencies = new Currencies(apiClient);
+    this.text = new Text(apiClient);
+    this.settings = new Settings(apiClient);
+    this.checkoutFields = new CheckoutFields(apiClient);
+    this.pages = new Pages(apiClient);
+    this.tokens = new Tokens(apiClient)
 
-api.webstore = {};
-api.webstore.authorize = (email, admin_url) => webstoreClient.authorize(email, admin_url);
+    this.ajax = {};
+    this.ajax.products = new Products(ajaxClient);
+    this.ajax.sitemap = new Sitemap(ajaxClient);
+    this.ajax.cart = new AjaxCart(ajaxClient);
+    this.ajax.countries = new Countries(ajaxClient);
+    this.ajax.currencies = new Currencies(ajaxClient);
+    this.ajax.shippingMethods = new AjaxShippingMethods(ajaxClient);
+    this.ajax.paymentMethods = new AjaxPaymentMethods(ajaxClient);
+    this.ajax.paymentFormSettings = new AjaxPaymentFormSettings(ajaxClient);
+    this.ajax.pages = new Pages(ajaxClient);
 
-api.webstore.init = (token) => {
-    webstoreClient.init(token);
-    api.webstore.token = webstoreClient.token;
-    api.webstore.account = new WebStoreAccount(webstoreClient);
+    this.webstore = {};
+    this.webstore.account = new WebStoreAccount(webstoreClient);
+    this.webstore.services = new WebStoreServices(webstoreClient);
+    this.webstore.services.settings = new WebStoreServiceSettings(webstoreClient);
+    this.webstore.services.actions = new WebStoreServiceActions(webstoreClient);
+    this.webstore.services.logs = new WebStoreServiceLogs(webstoreClient);
+  }
+
+  static authorize = (baseUrl, email) => {
+    return ApiClient.authorize(baseUrl, '/authorize', email);
+  }
+
+  static authorizeInWebStore = (email, admin_url) => {
+    return WebStoreClient.authorize(email, admin_url);
+  }
 }
 
-module.exports = api;
+module.exports = Client;

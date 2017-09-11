@@ -1,10 +1,12 @@
 {
   "name": "cezerin-client",
-  "version": "0.19.9",
+  "version": "0.20.3",
   "description": "Cezerin API client library. Work on browser and server.",
   "keywords": [
     "cezerin",
     "cezerin api",
+    "cezerin ajax",
+    "cezerin web store",
     "ecommerce api",
     "shopping cart api"
   ],
@@ -31,21 +33,16 @@
     "lint": "./node_modules/.bin/eslint src"
   },
   "dependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-latest": "^6.24.1",
-    "eslint": "^3.19.0",
-    "eslint-plugin-react": "^6.10.3",
     "isomorphic-fetch": "^2.2.1",
-    "query-string": "^4.3.4"
+    "query-string": "^5.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.22.2",
+    "babel-cli": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.22.0",
     "babel-preset-latest": "^6.22.0",
     "eslint": "^3.17.1",
     "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0"
   }

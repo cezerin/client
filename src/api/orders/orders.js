@@ -46,6 +46,10 @@ class Orders {
   updateShippingAddress(order_id, address) {
     return this.client.put(`/orders/${order_id}/shipping_address`, address);
   }
+
+  getPaymentFormSettings(order_id) {
+    return this.client.get(`/orders/${order_id}/payment_form_settings`);
+  }
 }
 
 module.exports = Orders

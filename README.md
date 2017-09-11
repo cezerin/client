@@ -1,6 +1,10 @@
 # Cezerin API client library
 
-Allows asynchronous requests to Cezerin REST API and get results with Promise.
+Allows asynchronous requests to REST API and get results with native Promise or async/await.
+- Cezerin API
+- Cezerin AJAX API
+- Cezerin Web Store API
+
 
 Install with:
 
@@ -10,48 +14,67 @@ Install with:
 ## Initialize
 
 ```javascript
-const api = require('cezerin-client');
-api.init('https://website.com/api/v1', '<token>');
+import CezerinClient from 'cezerin-client';
+
+const api = new CezerinClient({
+  apiBaseUrl: 'https://website.com/api/v1',
+  apiToken: '<token>'
+});
 ```
 
 ## Usage
 
 ```javascript
-// get all categories
+
+// fetch all categories with await
+const categoriesResponse = await api.productCategories.list();
+const categories = categoriesResponse.json;
+for(const category of categories){
+  console.log(category.name)
+}
+
+// fetch all categories with Promise
 api.productCategories.list().then(({status, json}) => {
-    const products = json;
-    for(const product of products){
-      console.log(product.name)
+    const categories = json;
+    for(const category of categories){
+      console.log(category.name)
     }
 });
 
 // create a category
 api.productCategories.create({name: 'Woman', active: true}).then(({status, json}) => {
-    const category_id = json.id;
+    const categoryId = json.id;
 });
 ```
 
 ##  Error Handling
 
 ```javascript
-api.productCategories.create({ nameX: 'Woman' })
+// with await
+try {
+  const createResult = await api.productCategories.create({ name: 'Woman' });
+  const newCategory = createResult.json;
+} catch(e) {
+  console.log(e);
+}
+
+// with Promise
+api.productCategories.create({ name: 'Woman' })
 .then(({status, json}) => {
   if(status === 200) {
     // success
-    return json;
+    const newCategory = json;
   } else {
     // 404 or bad request
-    console.log(json)
   }
 })
-.catch(error => {
-    console.log(error)
+.catch(err => {
+  console.log(err)
 });
 ```
 
 ## Methods
 
-* `api.init(baseUrl, token)`
 * `api.authorize(baseUrl, user, pass)`
 * `api.sitemap.list()`
 * `api.sitemap.retrieve(path)`
@@ -62,7 +85,7 @@ api.productCategories.create({ nameX: 'Woman' })
 * `api.productCategories.delete(id)`
 * `api.productCategories.uploadImage(categoryId, formData)`
 * `api.productCategories.deleteImage(id)`
-* api.products.list({
+* `api.products.list({`
     - offset: 0,
     - limit: 10,
     - fields: 'id, name, price',
@@ -182,6 +205,13 @@ api.productCategories.create({ nameX: 'Woman' })
 * `api.webstore.account.retrieve()`
 * `api.webstore.account.update(data)`
 * `api.webstore.account.updateDeveloper(data)`
+* `api.webstore.services.list()`
+* `api.webstore.services.retrieve(serviceId)`
+* `api.webstore.services.settings.retrieve(serviceId)`
+* `api.webstore.services.settings.update(serviceId, settings)`
+* `api.webstore.services.actions.call(serviceId, actionId)`
+* `api.webstore.services.logs.list(serviceId)`
+
 
 ## Contributing
 

@@ -2,17 +2,12 @@ import fetch from 'isomorphic-fetch'
 import queryString from 'query-string'
 
 class ApiClient {
-  constructor() {
-    this.isAuthorized = false;
+  constructor(options) {
+    this.baseUrl = options.baseUrl;
+    this.token = options.token;
   }
 
-  init(baseUrl, token) {
-    this.baseUrl = baseUrl;
-    this.token = token;
-    this.isAuthorized = true;
-  }
-
-  authorize(baseUrl, endpoint, email) {
+  static authorize = (baseUrl, endpoint, email) => {
     let config = {
       credentials: 'same-origin',
   		method: 'post',
@@ -22,11 +17,19 @@ class ApiClient {
   		},
       body: JSON.stringify({ email })
     };
-    return fetch(baseUrl + endpoint, config).then(this.returnStatusAndJson);
+    return fetch(baseUrl + endpoint, config).then(ApiClient.returnStatusAndJson);
   }
 
-  btoa(str) {
-    return Buffer.from(str).toString('base64');
+  static returnStatusAndJson = response => {
+      // response.status (number) - HTTP response code in the 100–599 range
+      // response.statusText (String) - Status text as reported by the server, e.g. "Unauthorized"
+      // response.ok (boolean) - True if status is HTTP 2xx
+      // response.headers (Headers)
+      // response.url (String)
+
+      return response.json()
+      .then(json => ({status: response.status, json: json}))
+      .catch(() => ({status: response.status, json: null}));
   }
 
 	getConfig(method, data) {
@@ -60,36 +63,24 @@ class ApiClient {
   }
 
 	get(endpoint, filter) {
-    return fetch(this.baseUrl + endpoint + "?" + queryString.stringify(filter), this.getConfig('get')).then(this.returnStatusAndJson);
+    return fetch(this.baseUrl + endpoint + "?" + queryString.stringify(filter), this.getConfig('get')).then(ApiClient.returnStatusAndJson);
 	}
 
   post(endpoint, data) {
-		return fetch(this.baseUrl + endpoint, this.getConfig('post', data)).then(this.returnStatusAndJson);
+		return fetch(this.baseUrl + endpoint, this.getConfig('post', data)).then(ApiClient.returnStatusAndJson);
 	}
 
   put(endpoint, data) {
-		return fetch(this.baseUrl + endpoint, this.getConfig('put', data)).then(this.returnStatusAndJson);
+		return fetch(this.baseUrl + endpoint, this.getConfig('put', data)).then(ApiClient.returnStatusAndJson);
 	}
 
   delete(endpoint) {
-		return fetch(this.baseUrl + endpoint, this.getConfig('delete')).then(this.returnStatusAndJson);
+		return fetch(this.baseUrl + endpoint, this.getConfig('delete')).then(ApiClient.returnStatusAndJson);
 	}
 
   postFormData(endpoint, formData) {
-    return fetch(this.baseUrl + endpoint, this.postFormDataConfig(formData)).then(this.returnStatusAndJson);
-  }
-
-  returnStatusAndJson(response) {
-      // response.status (number) - HTTP response code in the 100–599 range
-      // response.statusText (String) - Status text as reported by the server, e.g. "Unauthorized"
-      // response.ok (boolean) - True if status is HTTP 2xx
-      // response.headers (Headers)
-      // response.url (String)
-
-      return response.json()
-      .then(json => ({status: response.status, json: json}))
-      .catch(() => ({status: response.status, json: null}));
+    return fetch(this.baseUrl + endpoint, this.postFormDataConfig(formData)).then(ApiClient.returnStatusAndJson);
   }
 }
 
-module.exports = new ApiClient()
+module.exports = ApiClient;
