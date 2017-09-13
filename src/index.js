@@ -20,6 +20,7 @@ const OrderItems = require('./api/orders/items')
 const OrderStatuses = require('./api/orders/statuses')
 const ShippingMethods = require('./api/shippingMethods')
 const PaymentMethods = require('./api/paymentMethods')
+const PaymentGateways = require('./api/paymentGateways')
 const AjaxShippingMethods = require('./api/ajaxShippingMethods')
 const AjaxPaymentMethods = require('./api/ajaxPaymentMethods')
 const AjaxPaymentFormSettings = require('./api/ajaxPaymentFormSettings')
@@ -65,6 +66,7 @@ class Client {
     this.orderStatuses = new OrderStatuses(apiClient);
     this.shippingMethods = new ShippingMethods(apiClient);
     this.paymentMethods = new PaymentMethods(apiClient);
+    this.paymentGateways = new PaymentGateways(apiClient);
     this.customerGroups = new CustomerGroups(apiClient);
     this.sitemap = new Sitemap(apiClient);
     this.themes = new Themes(apiClient);

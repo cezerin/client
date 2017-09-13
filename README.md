@@ -178,6 +178,8 @@ api.productCategories.create({ name: 'Woman' })
 * `api.paymentMethods.create`
 * `api.paymentMethods.update`
 * `api.paymentMethods.delete`
+* `api.paymentGateways.retrieve`
+* `api.paymentGateways.update`
 * `api.settings.retrieve`
 * `api.settings.update`
 * `api.settings.retrieveEmailSettings`
