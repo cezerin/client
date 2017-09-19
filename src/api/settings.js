@@ -27,9 +27,8 @@ class Settings {
     return this.client.put(`/settings/email/templates/${name}`, data);
   }
 
-  uploadLogo(data) {
-    throw 'Not implemented';
-    //return this.client.post(`/settings/logo`, data);
+  uploadLogo(formData) {
+    return this.client.postFormData('/settings/logo', formData);
   }
 
   deleteLogo() {
