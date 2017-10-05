@@ -126,8 +126,11 @@ api.productCategories.create({ name: 'Woman' })
 * `api.products.images.update(productId, imageId, data)`
 * `api.products.images.upload(productId, formData)`
 * `api.products.images.delete(productId, imageId)`
-* `api.themes.exportCurrent()`
-* `api.themes.importAndInstall(formData)`
+* `api.theme.export()`
+* `api.theme.install(formData)`
+* `api.theme.settings.retrieve()`
+* `api.theme.settings.update(settings)`
+* `api.theme.settings.retrieveSchema()`
 * `api.customers.list`
 * `api.customers.retrieve`
 * `api.customers.create`
