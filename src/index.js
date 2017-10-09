@@ -11,6 +11,7 @@ const ProductImages = require('./api/products/images')
 const Sitemap = require('./api/sitemap')
 const Theme = require('./api/theme/theme')
 const ThemeSettings = require('./api/theme/settings')
+const ThemeAssets = require('./api/theme/assets')
 const CustomerGroups = require('./api/customerGroups')
 const Customers = require('./api/customers')
 const AjaxCart = require('./api/ajaxCart')
@@ -72,6 +73,7 @@ class Client {
     this.sitemap = new Sitemap(apiClient);
     this.theme = new Theme(apiClient);
     this.theme.settings = new ThemeSettings(apiClient);
+    this.theme.assets = new ThemeAssets(apiClient);
     this.countries = new Countries(apiClient);
     this.currencies = new Currencies(apiClient);
     this.text = new Text(apiClient);

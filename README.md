@@ -131,6 +131,8 @@ api.productCategories.create({ name: 'Woman' })
 * `api.theme.settings.retrieve()`
 * `api.theme.settings.update(settings)`
 * `api.theme.settings.retrieveSchema()`
+* `api.theme.assets.uploadFile(formData)`
+* `api.theme.assets.deleteFile(fileName)`
 * `api.customers.list`
 * `api.customers.retrieve`
 * `api.customers.create`
