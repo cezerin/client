@@ -1,6 +1,8 @@
 # Cezerin API client library
 
-Allows asynchronous requests to REST API and get results with native Promise or async/await.
+Allows asynchronous requests to Cezerin REST API and get results with native Promise or async/await. Work on browser and server.
+
+Client include:
 - Cezerin API
 - Cezerin AJAX API
 - Cezerin Web Store API
@@ -8,7 +10,9 @@ Allows asynchronous requests to REST API and get results with native Promise or 
 
 Install with:
 
-    npm install cezerin-client
+```
+npm install cezerin-client
+```
 
 
 ## Initialize
@@ -42,7 +46,7 @@ api.productCategories.list().then(({status, json}) => {
 });
 
 // create a category
-api.productCategories.create({name: 'Woman', active: true}).then(({status, json}) => {
+api.productCategories.create({name: 'Shoes', active: true}).then(({status, json}) => {
     const categoryId = json.id;
 });
 ```
@@ -52,14 +56,14 @@ api.productCategories.create({name: 'Woman', active: true}).then(({status, json}
 ```javascript
 // with await
 try {
-  const createResult = await api.productCategories.create({ name: 'Woman' });
+  const createResult = await api.productCategories.create({ name: 'Shoes' });
   const newCategory = createResult.json;
 } catch(e) {
   console.log(e);
 }
 
 // with Promise
-api.productCategories.create({ name: 'Woman' })
+api.productCategories.create({ name: 'Shoes' })
 .then(({status, json}) => {
   if(status === 200) {
     // success
@@ -204,6 +208,13 @@ api.productCategories.create({ name: 'Woman' })
 * `api.tokens.create`
 * `api.tokens.update`
 * `api.tokens.delete`
+* `api.redirects.list`
+* `api.redirects.retrieve`
+* `api.redirects.create`
+* `api.redirects.update`
+* `api.redirects.delete`
+* `api.files.upload(formData)`
+* `api.files.delete(fileName)`
 
 ## Web Store Methods
 

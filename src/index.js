@@ -33,6 +33,8 @@ const Settings = require('./api/settings')
 const CheckoutFields = require('./api/checkoutFields')
 const Pages = require('./api/pages')
 const Tokens = require('./api/tokens')
+const Redirects = require('./api/redirects')
+const Files = require('./api/files')
 const WebStoreAccount = require('./webstore/account')
 const WebStoreServices = require('./webstore/services')
 const WebStoreServiceSettings = require('./webstore/serviceSettings')
@@ -80,7 +82,9 @@ class Client {
     this.settings = new Settings(apiClient);
     this.checkoutFields = new CheckoutFields(apiClient);
     this.pages = new Pages(apiClient);
-    this.tokens = new Tokens(apiClient)
+    this.tokens = new Tokens(apiClient);
+    this.redirects = new Redirects(apiClient);
+    this.files = new Files(apiClient);
 
     this.ajax = {};
     this.ajax.products = new Products(ajaxClient);

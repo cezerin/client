@@ -1,6 +1,6 @@
 {
   "name": "cezerin-client",
-  "version": "0.24.1",
+  "version": "0.26.1",
   "description": "Cezerin API client library. Work on browser and server.",
   "keywords": [
     "cezerin",
