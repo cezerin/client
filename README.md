@@ -215,6 +215,13 @@ api.productCategories.create({ name: 'Shoes' })
 * `api.redirects.delete`
 * `api.files.upload(formData)`
 * `api.files.delete(fileName)`
+* `api.apps.settings.retrieve(appKey)`
+* `api.apps.settings.update(appKey, data)`
+* `api.theme.placeholders.list()`
+* `api.theme.placeholders.retrieve(placeholderKey)`
+* `api.theme.placeholders.create(data)`
+* `api.theme.placeholders.update(placeholderKey, data)`
+* `api.theme.placeholders.delete(placeholderKey)`
 
 ## Web Store Methods
 

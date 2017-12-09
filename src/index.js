@@ -12,6 +12,7 @@ const Sitemap = require('./api/sitemap')
 const Theme = require('./api/theme/theme')
 const ThemeSettings = require('./api/theme/settings')
 const ThemeAssets = require('./api/theme/assets')
+const ThemePlaceholders = require('./api/theme/placeholders')
 const CustomerGroups = require('./api/customerGroups')
 const Customers = require('./api/customers')
 const AjaxCart = require('./api/ajaxCart')
@@ -35,6 +36,7 @@ const Pages = require('./api/pages')
 const Tokens = require('./api/tokens')
 const Redirects = require('./api/redirects')
 const Files = require('./api/files')
+const AppSettings = require('./api/apps/settings')
 const WebStoreAccount = require('./webstore/account')
 const WebStoreServices = require('./webstore/services')
 const WebStoreServiceSettings = require('./webstore/serviceSettings')
@@ -76,6 +78,7 @@ class Client {
     this.theme = new Theme(apiClient);
     this.theme.settings = new ThemeSettings(apiClient);
     this.theme.assets = new ThemeAssets(apiClient);
+    this.theme.placeholders = new ThemePlaceholders(apiClient);
     this.countries = new Countries(apiClient);
     this.currencies = new Currencies(apiClient);
     this.text = new Text(apiClient);
@@ -85,6 +88,8 @@ class Client {
     this.tokens = new Tokens(apiClient);
     this.redirects = new Redirects(apiClient);
     this.files = new Files(apiClient);
+    this.apps = {};
+    this.apps.settings = new AppSettings(apiClient);
 
     this.ajax = {};
     this.ajax.products = new Products(ajaxClient);

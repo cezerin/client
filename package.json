@@ -1,6 +1,6 @@
 {
   "name": "cezerin-client",
-  "version": "0.26.1",
+  "version": "0.27.0",
   "description": "Cezerin API client library. Work on browser and server.",
   "keywords": [
     "cezerin",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "query-string": "^5.0.0"
+    "query-string": "^5.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -42,7 +42,7 @@
     "babel-preset-latest": "^6.22.0",
     "eslint": "^3.17.1",
     "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0"
   }
