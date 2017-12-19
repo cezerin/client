@@ -3,6 +3,10 @@ class Files {
     this.client = client;
   }
 
+  list(filter) {
+    return this.client.get('/files', filter);
+  }
+
   upload(formData) {
     return this.client.postFormData('/files', formData);
   }

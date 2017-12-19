@@ -213,6 +213,7 @@ api.productCategories.create({ name: 'Shoes' })
 * `api.redirects.create`
 * `api.redirects.update`
 * `api.redirects.delete`
+* `api.files.list(filter)`
 * `api.files.upload(formData)`
 * `api.files.delete(fileName)`
 * `api.apps.settings.retrieve(appKey)`
