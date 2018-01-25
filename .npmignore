@@ -1,1 +1,7 @@
-src/
+src
+.git
+.gitignore
+.npmignore
+package-lock.json
+SUMMARY.md
+example.md

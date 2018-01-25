@@ -7,8 +7,8 @@ class AjaxClient {
   }
 
 	getConfig(method, data, cookie) {
-		let config = {
-      credentials: 'same-origin',
+    let config = {
+      credentials: this.getCredentialsConfig(this.baseUrl),
       method: method,
 			headers: {
         'Content-Type': 'application/json',
@@ -25,6 +25,11 @@ class AjaxClient {
     }
     return config;
 	}
+
+  getCredentialsConfig(baseUrl) {
+    const includePrefix = baseUrl.includes('http://') || baseUrl.includes('https://');
+    return includePrefix ? 'include' : 'same-origin';
+  }
 
   returnStatusAndJson(response) {
       // response.status (number) - HTTP response code in the 100–599 range
