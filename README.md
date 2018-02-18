@@ -216,6 +216,11 @@ api.productCategories.create({ name: 'Shoes' })
 * `api.files.list(filter)`
 * `api.files.upload(formData)`
 * `api.files.delete(fileName)`
+* `api.webhooks.list`
+* `api.webhooks.retrieve`
+* `api.webhooks.create`
+* `api.webhooks.update`
+* `api.webhooks.delete`
 * `api.apps.settings.retrieve(appKey)`
 * `api.apps.settings.update(appKey, data)`
 * `api.theme.placeholders.list()`

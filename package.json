@@ -1,6 +1,6 @@
 {
   "name": "cezerin-client",
-  "version": "0.31.0",
+  "version": "0.31.1",
   "description": "Cezerin API client library. Work on browser and server.",
   "keywords": [
     "cezerin",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "query-string": "^5.0.1"
+    "query-string": "^5.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

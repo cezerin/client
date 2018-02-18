@@ -35,6 +35,7 @@ const CheckoutFields = require('./api/checkoutFields')
 const Pages = require('./api/pages')
 const Tokens = require('./api/tokens')
 const Redirects = require('./api/redirects')
+const Webhooks = require('./api/webhooks')
 const Files = require('./api/files')
 const AppSettings = require('./api/apps/settings')
 const WebStoreAccount = require('./webstore/account')
@@ -87,6 +88,7 @@ class Client {
     this.pages = new Pages(apiClient);
     this.tokens = new Tokens(apiClient);
     this.redirects = new Redirects(apiClient);
+    this.webhooks = new Webhooks(apiClient);
     this.files = new Files(apiClient);
     this.apps = {};
     this.apps.settings = new AppSettings(apiClient);
