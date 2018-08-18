@@ -11,7 +11,7 @@ Client include:
 Install with:
 
 ```
-npm install cezerin-client
+npm i cezerin-client
 ```
 
 
@@ -29,7 +29,6 @@ const api = new CezerinClient({
 ## Usage
 
 ```javascript
-
 // fetch all categories with await
 const categoriesResponse = await api.productCategories.list();
 const categories = categoriesResponse.json;
@@ -90,21 +89,20 @@ api.productCategories.create({ name: 'Shoes' })
 * `api.productCategories.uploadImage(categoryId, formData)`
 * `api.productCategories.deleteImage(id)`
 * `api.products.list({`
-    - offset: 0,
-    - limit: 10,
-    - fields: 'id, name, price',
-    - category_id: '<id>',
-    - active: true,
-    - discontinued: false,
-    - search: '',
-    - on_sale: true,
-    - stock_status: 'available',
-    - price_from: 0,
-    - price_to: 100,
-    - sku: '',
-    - ids: '<id>,<id>,<id>',
-    - sort: 'regular_price,-stock_quantity'
-   })
+    - `offset: 0,`
+    - `limit: 10,`
+    - `fields: 'id, name, price',`
+    - `category_id: '<id>',`
+    - `active: true,`
+    - `discontinued: false,`
+    - `search: '',`
+    - `on_sale: true,`
+    - `stock_status: 'available',`
+    - `price_from: 0,`
+    - `price_to: 100,`
+    - `sku: '',`
+    - `ids: '<id>,<id>,<id>',`
+    - `sort: 'regular_price,-stock_quantity'})`
 * `api.products.retrieve(id)`
 * `api.products.create(data)`
 * `api.products.update(id, data)`
