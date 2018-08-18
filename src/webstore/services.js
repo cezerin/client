@@ -1,23 +1,23 @@
 class WebStoreServices {
-  constructor(client) {
-    this.client = client;
-  }
+	constructor(client) {
+		this.client = client;
+	}
 
-  list(filter) {
-    return this.client.get('/services', filter);
-  }
+	list(filter) {
+		return this.client.get('/services', filter);
+	}
 
-  retrieve(id) {
-    return this.client.get(`/services/${id}`);
-  }
+	retrieve(id) {
+		return this.client.get(`/services/${id}`);
+	}
 
-  enable(id) {
-    return this.client.post(`/services/${id}/enable`);
-  }
+	enable(id) {
+		return this.client.post(`/services/${id}/enable`);
+	}
 
-  disable(id) {
-    return this.client.post(`/services/${id}/disable`);
-  }
+	disable(id) {
+		return this.client.post(`/services/${id}/disable`);
+	}
 }
 
-module.exports = WebStoreServices
+module.exports = WebStoreServices;

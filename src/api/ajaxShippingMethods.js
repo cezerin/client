@@ -1,11 +1,11 @@
 class AjaxShippingMethods {
-  constructor(client) {
-    this.client = client;
-  }
+	constructor(client) {
+		this.client = client;
+	}
 
-  list() {
-    return this.client.get('/shipping_methods');
-  }
+	list() {
+		return this.client.get('/shipping_methods');
+	}
 }
 
-module.exports = AjaxShippingMethods
+module.exports = AjaxShippingMethods;

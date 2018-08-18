@@ -1,19 +1,19 @@
 class CheckoutFields {
-  constructor(client) {
-    this.client = client;
-  }
+	constructor(client) {
+		this.client = client;
+	}
 
-  list() {
-    return this.client.get('/settings/checkout/fields');
-  }
+	list() {
+		return this.client.get('/settings/checkout/fields');
+	}
 
-  retrieve(name) {
-    return this.client.get(`/settings/checkout/fields/${name}`);
-  }
+	retrieve(name) {
+		return this.client.get(`/settings/checkout/fields/${name}`);
+	}
 
-  update(name, data) {
-    return this.client.put(`/settings/checkout/fields/${name}`, data);
-  }
+	update(name, data) {
+		return this.client.put(`/settings/checkout/fields/${name}`, data);
+	}
 }
 
-module.exports = CheckoutFields
+module.exports = CheckoutFields;

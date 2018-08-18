@@ -1,27 +1,27 @@
 class Redirects {
-  constructor(client) {
-    this.client = client;
-  }
+	constructor(client) {
+		this.client = client;
+	}
 
-  list() {
-    return this.client.get('/redirects');
-  }
+	list() {
+		return this.client.get('/redirects');
+	}
 
-  retrieve(id) {
-    return this.client.get(`/redirects/${id}`);
-  }
+	retrieve(id) {
+		return this.client.get(`/redirects/${id}`);
+	}
 
-  create(data) {
-    return this.client.post(`/redirects`, data);
-  }
+	create(data) {
+		return this.client.post(`/redirects`, data);
+	}
 
-  update(id, data) {
-    return this.client.put(`/redirects/${id}`, data);
-  }
+	update(id, data) {
+		return this.client.put(`/redirects/${id}`, data);
+	}
 
-  delete(id) {
-    return this.client.delete(`/redirects/${id}`);
-  }
+	delete(id) {
+		return this.client.delete(`/redirects/${id}`);
+	}
 }
 
-module.exports = Redirects
+module.exports = Redirects;

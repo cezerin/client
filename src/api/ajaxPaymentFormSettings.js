@@ -1,11 +1,11 @@
 class AjaxPaymentFormSettings {
-  constructor(client) {
-    this.client = client;
-  }
+	constructor(client) {
+		this.client = client;
+	}
 
-  retrieve() {
-    return this.client.get('/payment_form_settings');
-  }
+	retrieve() {
+		return this.client.get('/payment_form_settings');
+	}
 }
 
 module.exports = AjaxPaymentFormSettings;

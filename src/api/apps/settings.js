@@ -1,15 +1,15 @@
 class AppSettings {
-  constructor(client) {
-    this.client = client;
-  }
+	constructor(client) {
+		this.client = client;
+	}
 
-  retrieve(appKey) {
-    return this.client.get(`/apps/${appKey}/settings`);
-  }
+	retrieve(appKey) {
+		return this.client.get(`/apps/${appKey}/settings`);
+	}
 
-  update(appKey, data) {
-    return this.client.put(`/apps/${appKey}/settings`, data);
-  }
+	update(appKey, data) {
+		return this.client.put(`/apps/${appKey}/settings`, data);
+	}
 }
 
-module.exports = AppSettings
+module.exports = AppSettings;

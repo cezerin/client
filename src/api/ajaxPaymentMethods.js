@@ -1,11 +1,11 @@
 class AjaxPaymentMethods {
-  constructor(client) {
-    this.client = client;
-  }
+	constructor(client) {
+		this.client = client;
+	}
 
-  list() {
-    return this.client.get('/payment_methods');
-  }
+	list() {
+		return this.client.get('/payment_methods');
+	}
 }
 
-module.exports = AjaxPaymentMethods
+module.exports = AjaxPaymentMethods;

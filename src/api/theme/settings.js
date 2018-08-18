@@ -1,19 +1,19 @@
 class ThemeSettings {
-  constructor(client) {
-    this.client = client;
-  }
+	constructor(client) {
+		this.client = client;
+	}
 
-  retrieve() {
-      return this.client.get('/theme/settings');
-  }
+	retrieve() {
+		return this.client.get('/theme/settings');
+	}
 
-  update(data) {
-    return this.client.put('/theme/settings', data);
-  }
+	update(data) {
+		return this.client.put('/theme/settings', data);
+	}
 
-  retrieveSchema() {
-    return this.client.get('/theme/settings_schema');
-  }
+	retrieveSchema() {
+		return this.client.get('/theme/settings_schema');
+	}
 }
 
-module.exports = ThemeSettings
+module.exports = ThemeSettings;
