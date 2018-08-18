@@ -3,20 +3,20 @@ export default class OrderTransactions {
 		this.client = client;
 	}
 
-	create(order_id, data) {
-		return this.client.post(`/orders/${order_id}/transactions`, data);
+	create(orderId, data) {
+		return this.client.post(`/orders/${orderId}/transactions`, data);
 	}
 
-	update(customer_id, transaction_id, data) {
+	update(orderId, transactionId, data) {
 		return this.client.put(
-			`/orders/${order_id}/transactions/${transaction_id}`,
+			`/orders/${orderId}/transactions/${transactionId}`,
 			data
 		);
 	}
 
-	delete(order_id, transaction_id) {
+	delete(orderId, transactionId) {
 		return this.client.delete(
-			`/orders/${order_id}/transactions/${transaction_id}`
+			`/orders/${orderId}/transactions/${transactionId}`
 		);
 	}
 }

@@ -1,25 +1,26 @@
 export default class OrderStatuses {
 	constructor(client) {
 		this.client = client;
+		this.resourceUrl = '/order_statuses';
 	}
 
 	list(filter) {
-		return this.client.get('/order_statuses', filter);
+		return this.client.get(this.resourceUrl, filter);
 	}
 
 	retrieve(id, filter) {
-		return this.client.get(`/order_statuses/${id}`, filter);
+		return this.client.get(`${this.resourceUrl}/${id}`, filter);
 	}
 
 	create(data) {
-		return this.client.post(`/order_statuses`, data);
+		return this.client.post(this.resourceUrl, data);
 	}
 
 	update(id, data) {
-		return this.client.put(`/order_statuses/${id}`, data);
+		return this.client.put(`${this.resourceUrl}/${id}`, data);
 	}
 
 	delete(id) {
-		return this.client.delete(`/order_statuses/${id}`);
+		return this.client.delete(`${this.resourceUrl}/${id}`);
 	}
 }

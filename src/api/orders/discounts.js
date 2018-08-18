@@ -3,18 +3,15 @@ export default class OrderDiscounts {
 		this.client = client;
 	}
 
-	create(order_id, data) {
-		return this.client.post(`/orders/${order_id}/discounts`, data);
+	create(orderId, data) {
+		return this.client.post(`/orders/${orderId}/discounts`, data);
 	}
 
-	update(order_id, discount_id, data) {
-		return this.client.put(
-			`/orders/${order_id}/discounts/${discount_id}`,
-			data
-		);
+	update(orderId, discountId, data) {
+		return this.client.put(`/orders/${orderId}/discounts/${discountId}`, data);
 	}
 
-	delete(order_id, discount_id) {
-		return this.client.delete(`/orders/${order_id}/discounts/${discount_id}`);
+	delete(orderId, discountId) {
+		return this.client.delete(`/orders/${orderId}/discounts/${discountId}`);
 	}
 }

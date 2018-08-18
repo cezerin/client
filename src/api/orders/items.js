@@ -3,15 +3,15 @@ export default class OrderItems {
 		this.client = client;
 	}
 
-	create(order_id, data) {
-		return this.client.post(`/orders/${order_id}/items`, data);
+	create(orderId, data) {
+		return this.client.post(`/orders/${orderId}/items`, data);
 	}
 
-	update(order_id, item_id, data) {
-		return this.client.put(`/orders/${order_id}/items/${item_id}`, data);
+	update(orderId, itemId, data) {
+		return this.client.put(`/orders/${orderId}/items/${itemId}`, data);
 	}
 
-	delete(order_id, item_id) {
-		return this.client.delete(`/orders/${order_id}/items/${item_id}`);
+	delete(orderId, itemId) {
+		return this.client.delete(`/orders/${orderId}/items/${itemId}`);
 	}
 }

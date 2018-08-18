@@ -1,25 +1,26 @@
 export default class ShippingMethods {
 	constructor(client) {
 		this.client = client;
+		this.resourceUrl = '/shipping_methods';
 	}
 
 	list(filter) {
-		return this.client.get('/shipping_methods', filter);
+		return this.client.get(this.resourceUrl, filter);
 	}
 
 	retrieve(id, filter) {
-		return this.client.get(`/shipping_methods/${id}`, filter);
+		return this.client.get(`${this.resourceUrl}/${id}`, filter);
 	}
 
 	create(data) {
-		return this.client.post(`/shipping_methods`, data);
+		return this.client.post(`${this.resourceUrl}`, data);
 	}
 
 	update(id, data) {
-		return this.client.put(`/shipping_methods/${id}`, data);
+		return this.client.put(`${this.resourceUrl}/${id}`, data);
 	}
 
 	delete(id) {
-		return this.client.delete(`/shipping_methods/${id}`);
+		return this.client.delete(`${this.resourceUrl}/${id}`);
 	}
 }

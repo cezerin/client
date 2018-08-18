@@ -1,13 +1,14 @@
 export default class ThemeAssets {
 	constructor(client) {
 		this.client = client;
+		this.resourceUrl = '/theme/assets';
 	}
 
 	uploadFile(formData) {
-		return this.client.postFormData('/theme/assets', formData);
+		return this.client.postFormData(this.resourceUrl, formData);
 	}
 
 	deleteFile(fileName) {
-		return this.client.delete(`/theme/assets/${fileName}`);
+		return this.client.delete(`${this.resourceUrl}/${fileName}`);
 	}
 }

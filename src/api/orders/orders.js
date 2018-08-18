@@ -1,53 +1,62 @@
 export default class Orders {
 	constructor(client) {
 		this.client = client;
+		this.resourceUrl = '/orders';
 	}
 
 	list(filter) {
-		return this.client.get('/orders', filter);
+		return this.client.get(this.resourceUrl, filter);
 	}
 
-	retrieve(order_id, filter) {
-		return this.client.get(`/orders/${order_id}`, filter);
+	retrieve(orderId, filter) {
+		return this.client.get(`${this.resourceUrl}/${orderId}`, filter);
 	}
 
 	create(data) {
-		return this.client.post(`/orders`, data);
+		return this.client.post(this.resourceUrl, data);
 	}
 
-	update(order_id, data) {
-		return this.client.put(`/orders/${order_id}`, data);
+	update(orderId, data) {
+		return this.client.put(`${this.resourceUrl}/${orderId}`, data);
 	}
 
-	delete(order_id) {
-		return this.client.delete(`/orders/${order_id}`);
+	delete(orderId) {
+		return this.client.delete(`${this.resourceUrl}/${orderId}`);
 	}
 
-	recalculate(order_id) {
-		return this.client.put(`/orders/${order_id}/recalculate`);
+	recalculate(orderId) {
+		return this.client.put(`${this.resourceUrl}/${orderId}/recalculate`);
 	}
 
-	checkout(order_id) {
-		return this.client.put(`/orders/${order_id}/checkout`);
+	checkout(orderId) {
+		return this.client.put(`${this.resourceUrl}/${orderId}/checkout`);
 	}
 
-	cancel(order_id) {
-		return this.client.put(`/orders/${order_id}/cancel`);
+	cancel(orderId) {
+		return this.client.put(`${this.resourceUrl}/${orderId}/cancel`);
 	}
 
-	close(order_id) {
-		return this.client.put(`/orders/${order_id}/close`);
+	close(orderId) {
+		return this.client.put(`${this.resourceUrl}/${orderId}/close`);
 	}
 
-	updateBillingAddress(order_id, address) {
-		return this.client.put(`/orders/${order_id}/billing_address`, address);
+	updateBillingAddress(orderId, address) {
+		return this.client.put(
+			`${this.resourceUrl}/${orderId}/billing_address`,
+			address
+		);
 	}
 
-	updateShippingAddress(order_id, address) {
-		return this.client.put(`/orders/${order_id}/shipping_address`, address);
+	updateShippingAddress(orderId, address) {
+		return this.client.put(
+			`${this.resourceUrl}/${orderId}/shipping_address`,
+			address
+		);
 	}
 
-	getPaymentFormSettings(order_id) {
-		return this.client.get(`/orders/${order_id}/payment_form_settings`);
+	getPaymentFormSettings(orderId) {
+		return this.client.get(
+			`${this.resourceUrl}/${orderId}/payment_form_settings`
+		);
 	}
 }

@@ -27,11 +27,11 @@ export default class AjaxCart {
 		return this.client.post(`/cart/items`, data);
 	}
 
-	updateItem(item_id, data) {
-		return this.client.put(`/cart/items/${item_id}`, data);
+	updateItem(id, data) {
+		return this.client.put(`/cart/items/${id}`, data);
 	}
 
-	deleteItem(item_id) {
-		return this.client.delete(`/cart/items/${item_id}`);
+	deleteItem(id) {
+		return this.client.delete(`/cart/items/${id}`);
 	}
 }

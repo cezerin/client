@@ -1,53 +1,57 @@
 export default class Customers {
 	constructor(client) {
 		this.client = client;
+		this.resourceUrl = '/customers';
 	}
 
 	list(filter) {
-		return this.client.get('/customers', filter);
+		return this.client.get(this.resourceUrl, filter);
 	}
 
 	retrieve(id, filter) {
-		return this.client.get(`/customers/${id}`, filter);
+		return this.client.get(`${this.resourceUrl}/${id}`, filter);
 	}
 
 	create(data) {
-		return this.client.post(`/customers`, data);
+		return this.client.post(this.resourceUrl, data);
 	}
 
 	update(id, data) {
-		return this.client.put(`/customers/${id}`, data);
+		return this.client.put(`${this.resourceUrl}/${id}`, data);
 	}
 
 	delete(id) {
-		return this.client.delete(`/customers/${id}`);
+		return this.client.delete(`${this.resourceUrl}/${id}`);
 	}
 
-	createAddress(customer_id, data) {
-		return this.client.post(`/customers/${customer_id}`, data);
+	createAddress(customerId, data) {
+		return this.client.post(`${this.resourceUrl}/${customerId}`, data);
 	}
 
-	updateAddress(customer_id, address_id, data) {
+	updateAddress(customerId, addressId, data) {
 		return this.client.put(
-			`/customers/${customer_id}/addresses/${address_id}`,
+			`${this.resourceUrl}/${customerId}/addresses/${addressId}`,
 			data
 		);
 	}
 
-	deleteAddress(customer_id, address_id) {
+	deleteAddress(customerId, addressId) {
 		return this.client.delete(
-			`/customers/${customer_id}/addresses/${address_id}`
+			`${this.resourceUrl}/${customerId}/addresses/${addressId}`
 		);
 	}
 
-	setDefaultBillingAddress(customer_id, address_id) {
+	setDefaultBillingAddress(customerId, addressId) {
 		return this.client.post(
-			`/customers/${customer_id}/addresses/${address_id}/default_billing`
+			`${this.resourceUrl}/${customerId}/addresses/${addressId}/default_billing`
 		);
 	}
-	setDefaultShippingAddress(customer_id, address_id) {
+
+	setDefaultShippingAddress(customerId, addressId) {
 		return this.client.post(
-			`/customers/${customer_id}/addresses/${address_id}/default_shipping`
+			`${
+				this.resourceUrl
+			}/${customerId}/addresses/${addressId}/default_shipping`
 		);
 	}
 }
