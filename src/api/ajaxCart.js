@@ -1,4 +1,4 @@
-class AjaxCart {
+export default class AjaxCart {
 	constructor(client) {
 		this.client = client;
 	}
@@ -35,5 +35,3 @@ class AjaxCart {
 		return this.client.delete(`/cart/items/${item_id}`);
 	}
 }
-
-module.exports = AjaxCart;

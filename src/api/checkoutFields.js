@@ -1,4 +1,4 @@
-class CheckoutFields {
+export default class CheckoutFields {
 	constructor(client) {
 		this.client = client;
 	}
@@ -15,5 +15,3 @@ class CheckoutFields {
 		return this.client.put(`/settings/checkout/fields/${name}`, data);
 	}
 }
-
-module.exports = CheckoutFields;

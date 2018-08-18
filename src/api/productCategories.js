@@ -1,4 +1,4 @@
-class ProductCategories {
+export default class ProductCategories {
 	constructor(client) {
 		this.client = client;
 	}
@@ -34,5 +34,3 @@ class ProductCategories {
 		return this.client.delete(`/product_categories/${id}/image`);
 	}
 }
-
-module.exports = ProductCategories;

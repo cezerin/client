@@ -1,4 +1,4 @@
-class ShippingMethods {
+export default class ShippingMethods {
 	constructor(client) {
 		this.client = client;
 	}
@@ -23,5 +23,3 @@ class ShippingMethods {
 		return this.client.delete(`/shipping_methods/${id}`);
 	}
 }
-
-module.exports = ShippingMethods;

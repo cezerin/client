@@ -1,4 +1,4 @@
-class Customers {
+export default class Customers {
 	constructor(client) {
 		this.client = client;
 	}
@@ -51,5 +51,3 @@ class Customers {
 		);
 	}
 }
-
-module.exports = Customers;

@@ -1,4 +1,4 @@
-class AjaxShippingMethods {
+export default class AjaxShippingMethods {
 	constructor(client) {
 		this.client = client;
 	}
@@ -7,5 +7,3 @@ class AjaxShippingMethods {
 		return this.client.get('/shipping_methods');
 	}
 }
-
-module.exports = AjaxShippingMethods;

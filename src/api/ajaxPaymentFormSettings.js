@@ -1,4 +1,4 @@
-class AjaxPaymentFormSettings {
+export default class AjaxPaymentFormSettings {
 	constructor(client) {
 		this.client = client;
 	}
@@ -7,5 +7,3 @@ class AjaxPaymentFormSettings {
 		return this.client.get('/payment_form_settings');
 	}
 }
-
-module.exports = AjaxPaymentFormSettings;

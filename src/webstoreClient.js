@@ -1,20 +1,20 @@
 import fetch from 'isomorphic-fetch';
 import queryString from 'query-string';
 
-class WebStoreClient {
+export default class WebStoreClient {
 	constructor(options) {
 		this.baseUrl = 'https://api.cezerin.com/v1';
 		this.token = options.token;
 	}
 
-	static authorize = (email, admin_url) => {
-		let config = {
+	static authorize = (email, adminUrl) => {
+		const config = {
 			method: 'post',
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept-Encoding': 'gzip, deflate'
 			},
-			body: JSON.stringify({ email: email, admin_url: admin_url })
+			body: JSON.stringify({ email, admin_url: adminUrl })
 		};
 
 		return fetch('https://api.cezerin.com/v1/account/authorize', config).then(
@@ -22,26 +22,19 @@ class WebStoreClient {
 		);
 	};
 
-	static returnStatusAndJson = response => {
-		// response.status (number) - HTTP response code in the 100–599 range
-		// response.statusText (String) - Status text as reported by the server, e.g. "Unauthorized"
-		// response.ok (boolean) - True if status is HTTP 2xx
-		// response.headers (Headers)
-		// response.url (String)
-
-		return response
+	static returnStatusAndJson = response =>
+		response
 			.json()
-			.then(json => ({ status: response.status, json: json }))
+			.then(json => ({ status: response.status, json }))
 			.catch(() => ({ status: response.status, json: null }));
-	};
 
 	getConfig(method, data) {
-		let config = {
-			method: method,
+		const config = {
+			method,
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept-Encoding': 'gzip, deflate',
-				Authorization: 'Bearer ' + this.token
+				Authorization: `Bearer ${this.token}`
 			}
 		};
 
@@ -52,11 +45,11 @@ class WebStoreClient {
 	}
 
 	postFormDataConfig(formData) {
-		let config = {
+		const config = {
 			method: 'post',
 			body: formData,
 			headers: {
-				Authorization: 'Bearer ' + this.token
+				Authorization: `Bearer ${this.token}`
 			}
 		};
 
@@ -65,7 +58,7 @@ class WebStoreClient {
 
 	get(endpoint, filter) {
 		return fetch(
-			this.baseUrl + endpoint + '?' + queryString.stringify(filter),
+			`${this.baseUrl}${endpoint}?${queryString.stringify(filter)}`,
 			this.getConfig('get')
 		).then(WebStoreClient.returnStatusAndJson);
 	}
@@ -95,5 +88,3 @@ class WebStoreClient {
 		).then(WebStoreClient.returnStatusAndJson);
 	}
 }
-
-module.exports = WebStoreClient;

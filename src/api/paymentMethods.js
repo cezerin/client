@@ -1,4 +1,4 @@
-class PaymentMethods {
+export default class PaymentMethods {
 	constructor(client) {
 		this.client = client;
 	}
@@ -23,5 +23,3 @@ class PaymentMethods {
 		return this.client.delete(`/payment_methods/${id}`);
 	}
 }
-
-module.exports = PaymentMethods;

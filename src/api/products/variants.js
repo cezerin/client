@@ -1,4 +1,4 @@
-class ProductVariants {
+export default class ProductVariants {
 	constructor(client) {
 		this.client = client;
 	}
@@ -29,5 +29,3 @@ class ProductVariants {
 		);
 	}
 }
-
-module.exports = ProductVariants;

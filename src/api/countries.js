@@ -1,4 +1,4 @@
-class Countries {
+export default class Countries {
 	constructor(client) {
 		this.client = client;
 	}
@@ -7,5 +7,3 @@ class Countries {
 		return this.client.get('/countries');
 	}
 }
-
-module.exports = Countries;

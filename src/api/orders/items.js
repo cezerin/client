@@ -1,4 +1,4 @@
-class OrderItems {
+export default class OrderItems {
 	constructor(client) {
 		this.client = client;
 	}
@@ -15,5 +15,3 @@ class OrderItems {
 		return this.client.delete(`/orders/${order_id}/items/${item_id}`);
 	}
 }
-
-module.exports = OrderItems;

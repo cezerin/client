@@ -1,4 +1,4 @@
-class ThemeAssets {
+export default class ThemeAssets {
 	constructor(client) {
 		this.client = client;
 	}
@@ -11,5 +11,3 @@ class ThemeAssets {
 		return this.client.delete(`/theme/assets/${fileName}`);
 	}
 }
-
-module.exports = ThemeAssets;

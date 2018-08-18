@@ -1,14 +1,14 @@
 import fetch from 'isomorphic-fetch';
 import queryString from 'query-string';
 
-class ApiClient {
+export default class ApiClient {
 	constructor(options) {
 		this.baseUrl = options.baseUrl;
 		this.token = options.token;
 	}
 
 	static authorize = (baseUrl, endpoint, email) => {
-		let config = {
+		const config = {
 			credentials: 'same-origin',
 			method: 'post',
 			headers: {
@@ -22,27 +22,20 @@ class ApiClient {
 		);
 	};
 
-	static returnStatusAndJson = response => {
-		// response.status (number) - HTTP response code in the 100–599 range
-		// response.statusText (String) - Status text as reported by the server, e.g. "Unauthorized"
-		// response.ok (boolean) - True if status is HTTP 2xx
-		// response.headers (Headers)
-		// response.url (String)
-
-		return response
+	static returnStatusAndJson = response =>
+		response
 			.json()
-			.then(json => ({ status: response.status, json: json }))
+			.then(json => ({ status: response.status, json }))
 			.catch(() => ({ status: response.status, json: null }));
-	};
 
 	getConfig(method, data) {
-		let config = {
+		const config = {
 			credentials: 'same-origin',
-			method: method,
+			method,
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept-Encoding': 'gzip, deflate',
-				Authorization: 'Bearer ' + this.token
+				Authorization: `Bearer ${this.token}`
 			}
 		};
 
@@ -53,12 +46,12 @@ class ApiClient {
 	}
 
 	postFormDataConfig(formData) {
-		let config = {
+		const config = {
 			credentials: 'same-origin',
 			method: 'post',
 			body: formData,
 			headers: {
-				Authorization: 'Bearer ' + this.token
+				Authorization: `Bearer ${this.token}`
 			}
 		};
 
@@ -67,7 +60,7 @@ class ApiClient {
 
 	get(endpoint, filter) {
 		return fetch(
-			this.baseUrl + endpoint + '?' + queryString.stringify(filter),
+			`${this.baseUrl}${endpoint}?${queryString.stringify(filter)}`,
 			this.getConfig('get')
 		).then(ApiClient.returnStatusAndJson);
 	}
@@ -97,5 +90,3 @@ class ApiClient {
 		).then(ApiClient.returnStatusAndJson);
 	}
 }
-
-module.exports = ApiClient;

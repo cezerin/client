@@ -1,4 +1,4 @@
-class Settings {
+export default class Settings {
 	constructor(client) {
 		this.client = client;
 	}
@@ -35,5 +35,3 @@ class Settings {
 		return this.client.delete(`/settings/logo`);
 	}
 }
-
-module.exports = Settings;

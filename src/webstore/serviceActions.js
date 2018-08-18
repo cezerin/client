@@ -1,4 +1,4 @@
-class WebStoreServices {
+export default class WebStoreServices {
 	constructor(client) {
 		this.client = client;
 	}
@@ -7,5 +7,3 @@ class WebStoreServices {
 		return this.client.post(`/services/${serviceId}/actions/${actionId}`);
 	}
 }
-
-module.exports = WebStoreServices;

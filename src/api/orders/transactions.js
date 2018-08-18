@@ -1,4 +1,4 @@
-class OrderTransactions {
+export default class OrderTransactions {
 	constructor(client) {
 		this.client = client;
 	}
@@ -20,5 +20,3 @@ class OrderTransactions {
 		);
 	}
 }
-
-module.exports = OrderTransactions;

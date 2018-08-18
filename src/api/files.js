@@ -1,4 +1,4 @@
-class Files {
+export default class Files {
 	constructor(client) {
 		this.client = client;
 	}
@@ -15,5 +15,3 @@ class Files {
 		return this.client.delete(`/files/${fileName}`);
 	}
 }
-
-module.exports = Files;

@@ -1,4 +1,4 @@
-class Pages {
+export default class Pages {
 	constructor(client) {
 		this.client = client;
 	}
@@ -23,5 +23,3 @@ class Pages {
 		return this.client.delete(`/pages/${id}`);
 	}
 }
-
-module.exports = Pages;

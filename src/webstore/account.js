@@ -1,4 +1,4 @@
-class WebStoreAccount {
+export default class WebStoreAccount {
 	constructor(client) {
 		this.client = client;
 	}
@@ -15,5 +15,3 @@ class WebStoreAccount {
 		return this.client.put('/account/developer', data);
 	}
 }
-
-module.exports = WebStoreAccount;

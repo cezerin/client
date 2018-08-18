@@ -1,4 +1,4 @@
-class AppSettings {
+export default class AppSettings {
 	constructor(client) {
 		this.client = client;
 	}
@@ -11,5 +11,3 @@ class AppSettings {
 		return this.client.put(`/apps/${appKey}/settings`, data);
 	}
 }
-
-module.exports = AppSettings;

@@ -1,4 +1,4 @@
-class Webhooks {
+export default class Webhooks {
 	constructor(client) {
 		this.client = client;
 	}
@@ -23,5 +23,3 @@ class Webhooks {
 		return this.client.delete(`/webhooks/${id}`);
 	}
 }
-
-module.exports = Webhooks;

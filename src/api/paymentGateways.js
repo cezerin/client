@@ -1,4 +1,4 @@
-class PaymentGateways {
+export default class PaymentGateways {
 	constructor(client) {
 		this.client = client;
 	}
@@ -11,5 +11,3 @@ class PaymentGateways {
 		return this.client.put(`/payment_gateways/${gatewayName}`, data);
 	}
 }
-
-module.exports = PaymentGateways;

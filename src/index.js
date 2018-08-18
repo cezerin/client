@@ -1,55 +1,50 @@
-const AjaxClient = require('./ajaxClient');
-const ApiClient = require('./apiClient');
-const WebStoreClient = require('./webstoreClient');
+import AjaxClient from './ajaxClient';
+import ApiClient from './apiClient';
+import WebStoreClient from './webstoreClient';
+import ProductCategories from './api/productCategories';
+import Products from './api/products/products';
+import ProductOptions from './api/products/options';
+import ProductOptionValues from './api/products/optionValues';
+import ProductVariants from './api/products/variants';
+import ProductImages from './api/products/images';
+import Sitemap from './api/sitemap';
+import Theme from './api/theme/theme';
+import ThemeSettings from './api/theme/settings';
+import ThemeAssets from './api/theme/assets';
+import ThemePlaceholders from './api/theme/placeholders';
+import CustomerGroups from './api/customerGroups';
+import Customers from './api/customers';
+import AjaxCart from './api/ajaxCart';
+import Orders from './api/orders/orders';
+import OrderDiscounts from './api/orders/discounts';
+import OrderTransactions from './api/orders/transactions';
+import OrderItems from './api/orders/items';
+import OrderStatuses from './api/orders/statuses';
+import ShippingMethods from './api/shippingMethods';
+import PaymentMethods from './api/paymentMethods';
+import PaymentGateways from './api/paymentGateways';
+import AjaxShippingMethods from './api/ajaxShippingMethods';
+import AjaxPaymentMethods from './api/ajaxPaymentMethods';
+import AjaxPaymentFormSettings from './api/ajaxPaymentFormSettings';
+import Countries from './api/countries';
+import Currencies from './api/currencies';
+import Text from './api/text';
+import Settings from './api/settings';
+import CheckoutFields from './api/checkoutFields';
+import Pages from './api/pages';
+import Tokens from './api/tokens';
+import Redirects from './api/redirects';
+import Webhooks from './api/webhooks';
+import Files from './api/files';
+import AppSettings from './api/apps/settings';
+import WebStoreAccount from './webstore/account';
+import WebStoreServices from './webstore/services';
+import WebStoreServiceSettings from './webstore/serviceSettings';
+import WebStoreServiceActions from './webstore/serviceActions';
+import WebStoreServiceLogs from './webstore/serviceLogs';
 
-const ProductCategories = require('./api/productCategories');
-const Products = require('./api/products/products');
-const ProductOptions = require('./api/products/options');
-const ProductOptionValues = require('./api/products/optionValues');
-const ProductVariants = require('./api/products/variants');
-const ProductImages = require('./api/products/images');
-const Sitemap = require('./api/sitemap');
-const Theme = require('./api/theme/theme');
-const ThemeSettings = require('./api/theme/settings');
-const ThemeAssets = require('./api/theme/assets');
-const ThemePlaceholders = require('./api/theme/placeholders');
-const CustomerGroups = require('./api/customerGroups');
-const Customers = require('./api/customers');
-const AjaxCart = require('./api/ajaxCart');
-const Orders = require('./api/orders/orders');
-const OrderDiscounts = require('./api/orders/discounts');
-const OrderTransactions = require('./api/orders/transactions');
-const OrderItems = require('./api/orders/items');
-const OrderStatuses = require('./api/orders/statuses');
-const ShippingMethods = require('./api/shippingMethods');
-const PaymentMethods = require('./api/paymentMethods');
-const PaymentGateways = require('./api/paymentGateways');
-const AjaxShippingMethods = require('./api/ajaxShippingMethods');
-const AjaxPaymentMethods = require('./api/ajaxPaymentMethods');
-const AjaxPaymentFormSettings = require('./api/ajaxPaymentFormSettings');
-const Countries = require('./api/countries');
-const Currencies = require('./api/currencies');
-const Text = require('./api/text');
-const Settings = require('./api/settings');
-const CheckoutFields = require('./api/checkoutFields');
-const Pages = require('./api/pages');
-const Tokens = require('./api/tokens');
-const Redirects = require('./api/redirects');
-const Webhooks = require('./api/webhooks');
-const Files = require('./api/files');
-const AppSettings = require('./api/apps/settings');
-const WebStoreAccount = require('./webstore/account');
-const WebStoreServices = require('./webstore/services');
-const WebStoreServiceSettings = require('./webstore/serviceSettings');
-const WebStoreServiceActions = require('./webstore/serviceActions');
-const WebStoreServiceLogs = require('./webstore/serviceLogs');
-
-class Client {
-	constructor(options) {
-		if (!options) {
-			options = {};
-		}
-
+export default class Client {
+	constructor(options = {}) {
 		this.apiBaseUrl = options.apiBaseUrl || '/api/v1';
 		this.apiToken = options.apiToken;
 		this.ajaxBaseUrl = options.ajaxBaseUrl || '/ajax';
@@ -117,13 +112,9 @@ class Client {
 		this.webstore.services.logs = new WebStoreServiceLogs(webstoreClient);
 	}
 
-	static authorize = (baseUrl, email) => {
-		return ApiClient.authorize(baseUrl, '/authorize', email);
-	};
+	static authorize = (baseUrl, email) =>
+		ApiClient.authorize(baseUrl, '/authorize', email);
 
-	static authorizeInWebStore = (email, admin_url) => {
-		return WebStoreClient.authorize(email, admin_url);
-	};
+	static authorizeInWebStore = (email, adminUrl) =>
+		WebStoreClient.authorize(email, adminUrl);
 }
-
-module.exports = Client;

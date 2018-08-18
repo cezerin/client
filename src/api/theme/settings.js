@@ -1,4 +1,4 @@
-class ThemeSettings {
+export default class ThemeSettings {
 	constructor(client) {
 		this.client = client;
 	}
@@ -15,5 +15,3 @@ class ThemeSettings {
 		return this.client.get('/theme/settings_schema');
 	}
 }
-
-module.exports = ThemeSettings;

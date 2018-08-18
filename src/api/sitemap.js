@@ -1,4 +1,4 @@
-class Sitemap {
+export default class Sitemap {
 	constructor(client) {
 		this.client = client;
 	}
@@ -11,5 +11,3 @@ class Sitemap {
 		return this.client.get('/sitemap', filter);
 	}
 }
-
-module.exports = Sitemap;

@@ -1,4 +1,4 @@
-class CustomerGroups {
+export default class CustomerGroups {
 	constructor(client) {
 		this.client = client;
 	}
@@ -23,5 +23,3 @@ class CustomerGroups {
 		return this.client.delete(`/customer_groups/${id}`);
 	}
 }
-
-module.exports = CustomerGroups;

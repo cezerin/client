@@ -1,4 +1,4 @@
-class ThemePlaceholders {
+export default class ThemePlaceholders {
 	constructor(client) {
 		this.client = client;
 	}
@@ -23,5 +23,3 @@ class ThemePlaceholders {
 		return this.client.delete(`/theme/placeholders/${placeholderKey}`);
 	}
 }
-
-module.exports = ThemePlaceholders;

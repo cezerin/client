@@ -1,4 +1,4 @@
-class Tokens {
+export default class Tokens {
 	constructor(client) {
 		this.client = client;
 	}
@@ -23,5 +23,3 @@ class Tokens {
 		return this.client.delete(`/security/tokens/${id}`);
 	}
 }
-
-module.exports = Tokens;

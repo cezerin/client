@@ -1,4 +1,4 @@
-class Orders {
+export default class Orders {
 	constructor(client) {
 		this.client = client;
 	}
@@ -51,5 +51,3 @@ class Orders {
 		return this.client.get(`/orders/${order_id}/payment_form_settings`);
 	}
 }
-
-module.exports = Orders;

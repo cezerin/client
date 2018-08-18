@@ -1,4 +1,4 @@
-class Products {
+export default class Products {
 	constructor(client) {
 		this.client = client;
 	}
@@ -31,5 +31,3 @@ class Products {
 		return this.client.get(`/products/${productId}/slug`, { slug: slug });
 	}
 }
-
-module.exports = Products;

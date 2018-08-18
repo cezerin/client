@@ -1,4 +1,4 @@
-class Currencies {
+export default class Currencies {
 	constructor(client) {
 		this.client = client;
 	}
@@ -7,5 +7,3 @@ class Currencies {
 		return this.client.get('/currencies');
 	}
 }
-
-module.exports = Currencies;

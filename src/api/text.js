@@ -1,4 +1,4 @@
-class Text {
+export default class Text {
 	constructor(client) {
 		this.client = client;
 	}
@@ -7,5 +7,3 @@ class Text {
 		return this.client.get('/text');
 	}
 }
-
-module.exports = Text;

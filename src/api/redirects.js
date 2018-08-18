@@ -1,4 +1,4 @@
-class Redirects {
+export default class Redirects {
 	constructor(client) {
 		this.client = client;
 	}
@@ -23,5 +23,3 @@ class Redirects {
 		return this.client.delete(`/redirects/${id}`);
 	}
 }
-
-module.exports = Redirects;
