@@ -6,8 +6,7 @@ export default class AjaxClient extends RestClient {
 			credentials: this.getCredentialsConfig(this.baseUrl),
 			method,
 			headers: {
-				'Content-Type': 'application/json',
-				'Accept-Encoding': 'gzip, deflate'
+				'Content-Type': 'application/json'
 			}
 		};
 

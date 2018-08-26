@@ -54,7 +54,7 @@
     }
   },
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
+    "cross-fetch": "^2.2.2",
     "query-string": "^6.1.0"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import fetch from 'cross-fetch';
 import RestClient from './restClient';
 
 export default class ApiClient extends RestClient {
@@ -6,8 +6,7 @@ export default class ApiClient extends RestClient {
 		const config = {
 			method: 'post',
 			headers: {
-				'Content-Type': 'application/json',
-				'Accept-Encoding': 'gzip, deflate'
+				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({ email })
 		};

@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import fetch from 'cross-fetch';
 import queryString from 'query-string';
 
 export default class RestClient {
@@ -12,7 +12,6 @@ export default class RestClient {
 			method,
 			headers: {
 				'Content-Type': 'application/json',
-				'Accept-Encoding': 'gzip, deflate',
 				Authorization: `Bearer ${this.token}`
 			}
 		};
