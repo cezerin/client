@@ -1,32 +1,22 @@
 {
-  "name": "cezerin-client",
-  "version": "0.34.0",
-  "description": "Cezerin API client library. Work on browser and server.",
+  "name": "natal-client",
+  "version": "1.0.0",
+  "description": "Natal API client library. Work on browser and server.",
   "keywords": [
-    "cezerin",
-    "cezerin api",
-    "cezerin ajax",
-    "cezerin web store",
+    "natal",
+    "natal api",
+    "natal ajax",
+    "natal web store",
     "ecommerce api",
     "shopping cart api"
   ],
-  "homepage": "https://cezerin.com",
-  "bugs": "https://github.com/cezerin/client/issues",
+  "homepage": "https://natal.com.ar",
+  "bugs": "https://github.com/rodriperez/client/issues",
   "license": "MIT",
   "author": {
-    "name": "Restmount <jsonmount@gmail.com>",
-    "url": "https://github.com/restmount"
+    "name": "Rodrigo <rodri.dpf@gmail.com>",
+    "url": "https://github.com/rodriperez"
   },
-  "contributors": [
-    {
-      "name": "Restmount <jsonmount@gmail.com>",
-      "url": "https://github.com/restmount"
-    },
-    {
-      "name": "Sergey Onufrienko <sergey@onufrienko.com>",
-      "url": "https://github.com/sonufrienko"
-    }
-  ],
   "main": "lib/index.js",
   "repository": {
     "type": "git",
