@@ -16,6 +16,10 @@ import CustomerGroups from './api/customerGroups';
 import Customers from './api/customers';
 import AjaxCart from './api/ajaxCart';
 import Orders from './api/orders/orders';
+import Prescriptions from './api/prescriptions/prescriptions';
+import PrescriptionItems from './api/prescriptions/items';
+import PrescriptionStatuses from './api/prescriptions/statuses';
+import PrescriptionTransactions from './api/prescriptions/transactions';
 import OrderDiscounts from './api/orders/discounts';
 import OrderTransactions from './api/orders/transactions';
 import OrderItems from './api/orders/items';
@@ -69,6 +73,12 @@ export default class Client {
 		this.orders.transactions = new OrderTransactions(apiClient);
 		this.orders.items = new OrderItems(apiClient);
 		this.orderStatuses = new OrderStatuses(apiClient);
+		// prescriptions
+		this.prescriptions = new Prescriptions(apiClient);
+		this.prescriptions.items = new PrescriptionItems(apiClient);
+		this.prescriptions.transactions = new PrescriptionTransactions(apiClient);
+		this.prescriptionStatuses = new PrescriptionStatuses(apiClient);
+
 		this.shippingMethods = new ShippingMethods(apiClient);
 		this.paymentMethods = new PaymentMethods(apiClient);
 		this.paymentGateways = new PaymentGateways(apiClient);
