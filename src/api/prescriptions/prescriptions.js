@@ -62,4 +62,8 @@ export default class Prescriptions {
 			`${this.resourceUrl}/${prescriptionId}/payment_form_settings`
 		);
 	}
+
+	confirm(prescriptionId) {
+		return this.client.put(`${this.resourceUrl}/${prescriptionId}/confirm`);
+	}
 }

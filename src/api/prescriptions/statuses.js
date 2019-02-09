@@ -1,7 +1,7 @@
 export default class PrescriptionStatuses {
 	constructor(client) {
 		this.client = client;
-		this.resourceUrl = '/order_statuses';
+		this.resourceUrl = '/prescription_statuses';
 	}
 
 	list(filter) {
