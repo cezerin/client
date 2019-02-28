@@ -54,6 +54,13 @@ export default class Orders {
 		);
 	}
 
+	updateSubsidiary(orderId, subsidiary) {
+		return this.client.put(
+			`${this.resourceUrl}/${orderId}/subsidiary`,
+			subsidiary
+		);
+	}
+
 	getPaymentFormSettings(orderId) {
 		return this.client.get(
 			`${this.resourceUrl}/${orderId}/payment_form_settings`
