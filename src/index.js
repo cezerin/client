@@ -122,7 +122,8 @@ export default class Client {
 		this.webstore.services.logs = new WebStoreServiceLogs(webstoreClient);
 	}
 
-	static authorize = (baseUrl, email) => ApiClient.authorize(baseUrl, email);
+	static authorize = (baseUrl, email, password) =>
+		ApiClient.authorize(baseUrl, email, password);
 
 	static authorizeInWebStore = (email, adminUrl) =>
 		WebStoreClient.authorize(email, adminUrl);
