@@ -20,7 +20,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cezerin/client"
+    "url": "https://github.com/rodriperez/client"
   },
   "scripts": {
     "build": "babel src -d lib",

@@ -46,6 +46,7 @@ import WebStoreServices from './webstore/services';
 import WebStoreServiceSettings from './webstore/serviceSettings';
 import WebStoreServiceActions from './webstore/serviceActions';
 import WebStoreServiceLogs from './webstore/serviceLogs';
+import Subsidiaries from './api/subsidiaries';
 
 export default class Client {
 	constructor(options = {}) {
@@ -80,6 +81,7 @@ export default class Client {
 		this.prescriptionStatuses = new PrescriptionStatuses(apiClient);
 
 		this.shippingMethods = new ShippingMethods(apiClient);
+		this.subsidiaries = new Subsidiaries(apiClient);
 		this.paymentMethods = new PaymentMethods(apiClient);
 		this.paymentGateways = new PaymentGateways(apiClient);
 		this.customerGroups = new CustomerGroups(apiClient);

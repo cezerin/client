@@ -23,6 +23,10 @@ export default class AjaxCart {
 		return this.client.put(`/cart/shipping_address`, address);
 	}
 
+	updateSubsidiary(subsidiary) {
+		return this.client.put(`/cart/subsidiary`, subsidiary);
+	}
+
 	addItem(data) {
 		return this.client.post(`/cart/items`, data);
 	}

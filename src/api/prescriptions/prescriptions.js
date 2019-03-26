@@ -57,6 +57,13 @@ export default class Prescriptions {
 		);
 	}
 
+	updateSubsidiary(prescriptionId, subsidiary) {
+		return this.client.put(
+			`${this.resourceUrl}/${prescriptionId}/subsidiary`,
+			subsidiary
+		);
+	}
+
 	getPaymentFormSettings(prescriptionId) {
 		return this.client.get(
 			`${this.resourceUrl}/${prescriptionId}/payment_form_settings`

@@ -70,6 +70,7 @@ test('api structure', () => {
 	expect(typeof api.orders.close).toBe('function');
 	expect(typeof api.orders.updateBillingAddress).toBe('function');
 	expect(typeof api.orders.updateShippingAddress).toBe('function');
+	expect(typeof api.orders.updateSubsidiary).toBe('function');
 	expect(typeof api.orders.getPaymentFormSettings).toBe('function');
 	expect(typeof api.orders.discounts.create).toBe('function');
 	expect(typeof api.orders.discounts.update).toBe('function');
@@ -96,6 +97,7 @@ test('api structure', () => {
 	expect(typeof api.prescriptions.close).toBe('function');
 	expect(typeof api.prescriptions.updateBillingAddress).toBe('function');
 	expect(typeof api.prescriptions.updateShippingAddress).toBe('function');
+	expect(typeof api.prescriptions.updateSubsidiary).toBe('function');
 	expect(typeof api.prescriptions.getPaymentFormSettings).toBe('function');
 	expect(typeof api.prescriptions.transactions.create).toBe('function');
 	expect(typeof api.prescriptions.transactions.update).toBe('function');
@@ -113,6 +115,11 @@ test('api structure', () => {
 	expect(typeof api.shippingMethods.create).toBe('function');
 	expect(typeof api.shippingMethods.update).toBe('function');
 	expect(typeof api.shippingMethods.delete).toBe('function');
+	expect(typeof api.subsidiaries.list).toBe('function');
+	expect(typeof api.subsidiaries.retrieve).toBe('function');
+	expect(typeof api.subsidiaries.create).toBe('function');
+	expect(typeof api.subsidiaries.update).toBe('function');
+	expect(typeof api.subsidiaries.delete).toBe('function');
 	expect(typeof api.paymentMethods.list).toBe('function');
 	expect(typeof api.paymentMethods.retrieve).toBe('function');
 	expect(typeof api.paymentMethods.create).toBe('function');
