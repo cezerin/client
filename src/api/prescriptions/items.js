@@ -3,20 +3,29 @@ export default class PrescriptionItems {
 		this.client = client;
 	}
 
-	create(prescriptionId, data) {
-		return this.client.post(`/prescriptions/${prescriptionId}/items`, data);
-	}
-
-	update(prescriptionId, itemId, data) {
-		return this.client.put(
-			`/prescriptions/${prescriptionId}/items/${itemId}`,
+	uploadPrescription(prescriptionId, data) {
+		return this.client.postFormData(
+			`/prescriptions/${prescriptionId}/items`,
 			data
 		);
 	}
 
-	delete(prescriptionId, itemId) {
+	uploadLicense(prescriptionId, data) {
+		return this.client.postFormData(
+			`/prescriptions/${prescriptionId}/licenses`,
+			data
+		);
+	}
+
+	deleteLicense(prescriptionId, fileId) {
 		return this.client.delete(
-			`/prescriptions/${prescriptionId}/items/${itemId}`
+			`/prescriptions/${prescriptionId}/licenses/${fileId}`
+		);
+	}
+
+	deletePrescription(prescriptionId, fileId) {
+		return this.client.delete(
+			`/prescriptions/${prescriptionId}/items/${fileId}`
 		);
 	}
 }
