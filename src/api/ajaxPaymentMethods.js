@@ -6,4 +6,8 @@ export default class AjaxPaymentMethods {
 	list() {
 		return this.client.get('/payment_methods');
 	}
+
+	prescriptions() {
+		return this.client.get('/payment_methods/prescriptions');
+	}
 }

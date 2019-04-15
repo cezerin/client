@@ -47,6 +47,7 @@ import WebStoreServiceSettings from './webstore/serviceSettings';
 import WebStoreServiceActions from './webstore/serviceActions';
 import WebStoreServiceLogs from './webstore/serviceLogs';
 import Subsidiaries from './api/subsidiaries';
+import AjaxPrescription from './api/ajaxPrescription';
 
 export default class Client {
 	constructor(options = {}) {
@@ -107,6 +108,7 @@ export default class Client {
 		this.ajax.products = new Products(ajaxClient);
 		this.ajax.sitemap = new Sitemap(ajaxClient);
 		this.ajax.cart = new AjaxCart(ajaxClient);
+		this.ajax.prescription = new AjaxPrescription(ajaxClient);
 		this.ajax.countries = new Countries(ajaxClient);
 		this.ajax.currencies = new Currencies(ajaxClient);
 		this.ajax.shippingMethods = new AjaxShippingMethods(ajaxClient);

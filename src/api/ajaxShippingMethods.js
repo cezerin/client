@@ -7,6 +7,10 @@ export default class AjaxShippingMethods {
 		return this.client.get('/shipping_methods');
 	}
 
+	prescriptions() {
+		return this.client.get('/shipping_methods/prescriptions');
+	}
+
 	getSubsidiaries() {
 		return this.client.get('/subsidiaries');
 	}
