@@ -31,8 +31,11 @@ export default class Prescriptions {
 		);
 	}
 
-	checkout(prescriptionId) {
-		return this.client.put(`${this.resourceUrl}/${prescriptionId}/checkout`);
+	checkout(prescriptionId, data) {
+		return this.client.put(
+			`${this.resourceUrl}/${prescriptionId}/checkout`,
+			data
+		);
 	}
 
 	cancel(prescriptionId) {
