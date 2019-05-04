@@ -76,4 +76,8 @@ export default class Prescriptions {
 	confirm(prescriptionId) {
 		return this.client.put(`${this.resourceUrl}/${prescriptionId}/confirm`);
 	}
+
+	sendEmail(prescriptionId) {
+		return this.client.post(`${this.resourceUrl}/${prescriptionId}/email`);
+	}
 }
