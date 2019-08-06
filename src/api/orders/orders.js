@@ -47,6 +47,13 @@ export default class Orders {
 		);
 	}
 
+	updateAvailability(orderId, available) {
+		return this.client.put(
+			`${this.resourceUrl}/${orderId}/confim_availability`,
+			available
+		);
+	}
+
 	updateShippingAddress(orderId, address) {
 		return this.client.put(
 			`${this.resourceUrl}/${orderId}/shipping_address`,

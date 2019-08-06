@@ -53,6 +53,13 @@ export default class Prescriptions {
 		);
 	}
 
+	updateAvailability(prescriptionId, available) {
+		return this.client.put(
+			`${this.resourceUrl}/${prescriptionId}/confim_availability`,
+			available
+		);
+	}
+
 	updateShippingAddress(prescriptionId, address) {
 		return this.client.put(
 			`${this.resourceUrl}/${prescriptionId}/shipping_address`,
