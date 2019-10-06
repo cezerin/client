@@ -16,6 +16,10 @@ export default class Products {
 		return this.client.post(this.resourceUrl, data);
 	}
 
+	import(formData) {
+		return this.client.postFormData(`${this.resourceUrl}/import`, formData);
+	}
+
 	update(id, data) {
 		return this.client.put(`${this.resourceUrl}/${id}`, data);
 	}
