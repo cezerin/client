@@ -3,6 +3,10 @@ export default class AjaxPrescription {
 		this.client = client;
 	}
 
+	retrieve(orderId) {
+		return this.client.get(`/prescription/${orderId}`);
+	}
+
 	create() {
 		return this.client.post(`/prescription`);
 	}
