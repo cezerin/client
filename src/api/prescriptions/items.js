@@ -3,9 +3,26 @@ export default class PrescriptionItems {
 		this.client = client;
 	}
 
+	create(prescriptionId, data) {
+		return this.client.post(`/prescriptions/${prescriptionId}/items`, data);
+	}
+
+	update(prescriptionId, itemId, data) {
+		return this.client.put(
+			`/prescriptions/${prescriptionId}/items/${itemId}`,
+			data
+		);
+	}
+
+	delete(prescriptionId, itemId) {
+		return this.client.delete(
+			`/prescriptions/${prescriptionId}/items/${itemId}`
+		);
+	}
+
 	uploadPrescription(prescriptionId, data) {
 		return this.client.postFormData(
-			`/prescriptions/${prescriptionId}/items`,
+			`/prescriptions/${prescriptionId}/medications`,
 			data
 		);
 	}
@@ -25,7 +42,7 @@ export default class PrescriptionItems {
 
 	deletePrescription(prescriptionId, fileId) {
 		return this.client.delete(
-			`/prescriptions/${prescriptionId}/items/${fileId}`
+			`/prescriptions/${prescriptionId}/medications/${fileId}`
 		);
 	}
 }
