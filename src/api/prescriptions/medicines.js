@@ -23,4 +23,12 @@ export default class Medicines {
 	delete(id) {
 		return this.client.delete(`${this.resourceUrl}/${id}`);
 	}
+
+	import(formData) {
+		return this.client.postFormData(`${this.resourceUrl}/import`, formData);
+	}
+
+	download() {
+		return this.client.get(`${this.resourceUrl}/export`);
+	}
 }
