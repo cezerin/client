@@ -49,6 +49,7 @@ import WebStoreServiceLogs from './webstore/serviceLogs';
 import Subsidiaries from './api/subsidiaries';
 import AjaxPrescription from './api/ajaxPrescription';
 import Medicines from './api/prescriptions/medicines';
+import ShippingRules from './api/shippingRules';
 
 export default class Client {
 	constructor(options = {}) {
@@ -84,6 +85,7 @@ export default class Client {
 		this.medicines = new Medicines(apiClient);
 
 		this.shippingMethods = new ShippingMethods(apiClient);
+		this.shippingRules = new ShippingRules(apiClient);
 		this.subsidiaries = new Subsidiaries(apiClient);
 		this.paymentMethods = new PaymentMethods(apiClient);
 		this.paymentGateways = new PaymentGateways(apiClient);
