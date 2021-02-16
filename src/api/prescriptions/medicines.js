@@ -29,6 +29,6 @@ export default class Medicines {
 	}
 
 	download() {
-		return this.client.get(`${this.resourceUrl}/export`);
+		return this.client.download(`${this.resourceUrl}/export`);
 	}
 }
