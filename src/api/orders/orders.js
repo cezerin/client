@@ -73,4 +73,8 @@ export default class Orders {
 			`${this.resourceUrl}/${orderId}/payment_form_settings`
 		);
 	}
+
+	download(dates) {
+		return this.client.download(`${this.resourceUrl}/download`, dates);
+	}
 }
