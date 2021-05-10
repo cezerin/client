@@ -75,6 +75,6 @@ export default class Orders {
 	}
 
 	download(dates) {
-		return this.client.download(`${this.resourceUrl}/shipping_address/download`, dates);
+		return this.client.download(`${this.resourceUrl}/export`, dates);
 	}
 }
