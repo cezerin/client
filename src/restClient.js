@@ -74,7 +74,7 @@ export default class RestClient {
 		);
 	}
 
-	download(endpoint) {
+	download(endpoint, data) {
 		const config = {
 			method: 'get',
 			headers: {
@@ -82,6 +82,6 @@ export default class RestClient {
 			},
 			responseType: 'arraybuffer'
 		};
-		return fetch(`${this.baseUrl}${endpoint}`, config);
+		return fetch(`${this.baseUrl}${endpoint}?${queryString.stringify(data)}`, config);
 	}
 }
