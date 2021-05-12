@@ -74,7 +74,7 @@ export default class RestClient {
 		);
 	}
 
-	download(endpoint, data) {
+	download(endpoint, data = {}) {
 		const config = {
 			method: 'get',
 			headers: {
