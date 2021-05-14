@@ -1,7 +1,7 @@
-export default class Products {
+export default class PrescriptionStatuses {
 	constructor(client) {
 		this.client = client;
-		this.resourceUrl = '/products';
+		this.resourceUrl = '/prescription_statuses';
 	}
 
 	list(filter) {
@@ -16,23 +16,11 @@ export default class Products {
 		return this.client.post(this.resourceUrl, data);
 	}
 
-	import(formData) {
-		return this.client.postFormData(`${this.resourceUrl}/import`, formData);
-	}
-
 	update(id, data) {
 		return this.client.put(`${this.resourceUrl}/${id}`, data);
 	}
 
 	delete(id) {
 		return this.client.delete(`${this.resourceUrl}/${id}`);
-	}
-
-	skuExists(productId, sku) {
-		return this.client.get(`${this.resourceUrl}/${productId}/sku`, { sku });
-	}
-
-	slugExists(productId, slug) {
-		return this.client.get(`${this.resourceUrl}/${productId}/slug`, { slug });
 	}
 }

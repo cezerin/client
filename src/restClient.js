@@ -73,4 +73,15 @@ export default class RestClient {
 			this.returnStatusAndJson
 		);
 	}
+
+	download(endpoint, data = {}) {
+		const config = {
+			method: 'get',
+			headers: {
+				Authorization: `Bearer ${this.token}`
+			},
+			responseType: 'arraybuffer'
+		};
+		return fetch(`${this.baseUrl}${endpoint}?${queryString.stringify(data)}`, config);
+	}
 }

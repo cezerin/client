@@ -47,6 +47,13 @@ export default class Orders {
 		);
 	}
 
+	updateAvailability(orderId, available) {
+		return this.client.put(
+			`${this.resourceUrl}/${orderId}/confim_availability`,
+			available
+		);
+	}
+
 	updateShippingAddress(orderId, address) {
 		return this.client.put(
 			`${this.resourceUrl}/${orderId}/shipping_address`,
@@ -54,9 +61,20 @@ export default class Orders {
 		);
 	}
 
+	updateSubsidiary(orderId, subsidiary) {
+		return this.client.put(
+			`${this.resourceUrl}/${orderId}/subsidiary`,
+			subsidiary
+		);
+	}
+
 	getPaymentFormSettings(orderId) {
 		return this.client.get(
 			`${this.resourceUrl}/${orderId}/payment_form_settings`
 		);
+	}
+
+	download(dates) {
+		return this.client.download(`${this.resourceUrl}/export`, dates);
 	}
 }

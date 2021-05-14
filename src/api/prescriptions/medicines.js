@@ -1,7 +1,7 @@
-export default class Products {
+export default class Medicines {
 	constructor(client) {
 		this.client = client;
-		this.resourceUrl = '/products';
+		this.resourceUrl = '/medicines';
 	}
 
 	list(filter) {
@@ -16,10 +16,6 @@ export default class Products {
 		return this.client.post(this.resourceUrl, data);
 	}
 
-	import(formData) {
-		return this.client.postFormData(`${this.resourceUrl}/import`, formData);
-	}
-
 	update(id, data) {
 		return this.client.put(`${this.resourceUrl}/${id}`, data);
 	}
@@ -28,11 +24,11 @@ export default class Products {
 		return this.client.delete(`${this.resourceUrl}/${id}`);
 	}
 
-	skuExists(productId, sku) {
-		return this.client.get(`${this.resourceUrl}/${productId}/sku`, { sku });
+	import(formData) {
+		return this.client.postFormData(`${this.resourceUrl}/import`, formData);
 	}
 
-	slugExists(productId, slug) {
-		return this.client.get(`${this.resourceUrl}/${productId}/slug`, { slug });
+	download() {
+		return this.client.download(`${this.resourceUrl}/export`);
 	}
 }

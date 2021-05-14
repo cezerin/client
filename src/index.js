@@ -16,6 +16,10 @@ import CustomerGroups from './api/customerGroups';
 import Customers from './api/customers';
 import AjaxCart from './api/ajaxCart';
 import Orders from './api/orders/orders';
+import Prescriptions from './api/prescriptions/prescriptions';
+import PrescriptionItems from './api/prescriptions/items';
+import PrescriptionStatuses from './api/prescriptions/statuses';
+import PrescriptionTransactions from './api/prescriptions/transactions';
 import OrderDiscounts from './api/orders/discounts';
 import OrderTransactions from './api/orders/transactions';
 import OrderItems from './api/orders/items';
@@ -42,6 +46,10 @@ import WebStoreServices from './webstore/services';
 import WebStoreServiceSettings from './webstore/serviceSettings';
 import WebStoreServiceActions from './webstore/serviceActions';
 import WebStoreServiceLogs from './webstore/serviceLogs';
+import Subsidiaries from './api/subsidiaries';
+import AjaxPrescription from './api/ajaxPrescription';
+import Medicines from './api/prescriptions/medicines';
+import ShippingRules from './api/shippingRules';
 
 export default class Client {
 	constructor(options = {}) {
@@ -69,7 +77,16 @@ export default class Client {
 		this.orders.transactions = new OrderTransactions(apiClient);
 		this.orders.items = new OrderItems(apiClient);
 		this.orderStatuses = new OrderStatuses(apiClient);
+		// prescriptions
+		this.prescriptions = new Prescriptions(apiClient);
+		this.prescriptions.items = new PrescriptionItems(apiClient);
+		this.prescriptions.transactions = new PrescriptionTransactions(apiClient);
+		this.prescriptionStatuses = new PrescriptionStatuses(apiClient);
+		this.medicines = new Medicines(apiClient);
+
 		this.shippingMethods = new ShippingMethods(apiClient);
+		this.shippingRules = new ShippingRules(apiClient);
+		this.subsidiaries = new Subsidiaries(apiClient);
 		this.paymentMethods = new PaymentMethods(apiClient);
 		this.paymentGateways = new PaymentGateways(apiClient);
 		this.customerGroups = new CustomerGroups(apiClient);
@@ -95,6 +112,7 @@ export default class Client {
 		this.ajax.products = new Products(ajaxClient);
 		this.ajax.sitemap = new Sitemap(ajaxClient);
 		this.ajax.cart = new AjaxCart(ajaxClient);
+		this.ajax.prescription = new AjaxPrescription(ajaxClient);
 		this.ajax.countries = new Countries(ajaxClient);
 		this.ajax.currencies = new Currencies(ajaxClient);
 		this.ajax.shippingMethods = new AjaxShippingMethods(ajaxClient);
@@ -112,7 +130,8 @@ export default class Client {
 		this.webstore.services.logs = new WebStoreServiceLogs(webstoreClient);
 	}
 
-	static authorize = (baseUrl, email) => ApiClient.authorize(baseUrl, email);
+	static authorize = (baseUrl, email, password) =>
+		ApiClient.authorize(baseUrl, email, password);
 
 	static authorizeInWebStore = (email, adminUrl) =>
 		WebStoreClient.authorize(email, adminUrl);
